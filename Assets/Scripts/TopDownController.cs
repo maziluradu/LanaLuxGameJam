@@ -30,7 +30,7 @@ public class TopDownController : MonoBehaviour
         // +180 so that Vector3.forward matches CameraAngleY == 0
         camera.transform.position = new Vector3(
             cameraTarget.position.x + Mathf.Sin((180 + cameraAngle) * Mathf.Deg2Rad) * cameraDistance,
-            cameraHeight,
+            cameraTarget.position.y + cameraHeight,
             cameraTarget.position.z + Mathf.Cos((180 + cameraAngle) * Mathf.Deg2Rad) * cameraDistance
         );
         camera.transform.LookAt(cameraTarget);
@@ -45,7 +45,7 @@ public class TopDownController : MonoBehaviour
             Input.GetAxis("Horizontal"),
             0,
             Input.GetAxis("Vertical")
-        );
+        ).normalized;
 
         if (inputDirection == Vector3.zero)
             return;
