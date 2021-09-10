@@ -5,6 +5,7 @@ public class TopDownController : MonoBehaviour
     public new Camera camera;
     public Transform cameraTarget;
     public CharacterController character;
+    public CharacterAnimator animator;
 
     [Header("Camera Margins")]
     public bool enableCameraMargins = true;
@@ -47,9 +48,6 @@ public class TopDownController : MonoBehaviour
             Input.GetAxis("Vertical")
         ).normalized;
 
-        if (inputDirection == Vector3.zero)
-            return;
-
         // MOVEMENT
         var direction = characterSpeed * Time.deltaTime * (Quaternion.Euler(0, cameraAngle, 0) * inputDirection);
         // add gravity
@@ -58,11 +56,21 @@ public class TopDownController : MonoBehaviour
         character.Move(direction);
 
         // ROTATION
-        character.transform.eulerAngles = new Vector3(
-            character.transform.eulerAngles.x,
-            cameraAngle + Mathf.Rad2Deg * Mathf.Atan2(inputDirection.x, inputDirection.z),
-            character.transform.eulerAngles.z
-        );
+        if (inputDirection != Vector3.zero)
+        {
+            character.transform.eulerAngles = new Vector3(
+                character.transform.eulerAngles.x,
+                cameraAngle + Mathf.Rad2Deg * Mathf.Atan2(inputDirection.x, inputDirection.z),
+                character.transform.eulerAngles.z
+            );
+        }
+
+        // ANIMATIONS
+        var directionXZ = new Vector3(direction.x, 0, direction.z);
+        if (directionXZ.magnitude > 0)
+            animator.Walk();
+        else
+            animator.Idle();
     }
 
     private void HandleCameraMargins()
