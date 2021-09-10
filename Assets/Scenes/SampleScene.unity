@@ -5141,7 +5141,7 @@ MonoBehaviour:
   cameraDistance: 15.86
   cameraAngle: 138.2
   enableCharacterMovement: 1
-  characterSpeed: 5
+  characterSpeed: 8
   gravity: 10
 --- !u!4 &2083714370
 Transform:
