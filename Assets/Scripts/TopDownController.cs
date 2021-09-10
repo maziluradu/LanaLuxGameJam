@@ -4,6 +4,7 @@ public class TopDownController : MonoBehaviour
 {
     public new Camera camera;
     public Transform cameraTarget;
+    public CharacterController character;
 
     [Header("Camera Margins")]
     public bool enableCameraMargins = true;
@@ -16,9 +17,15 @@ public class TopDownController : MonoBehaviour
     public float cameraDistance = 5f;
     public float cameraAngle = 0f;
 
+    [Header("Character movement")]
+    public bool enableCharacterMovement = true;
+    public float characterSpeed = 5f;
+    public float gravity = 10f;
+
     void Update()
     {
         HandleCameraMargins();
+        HandleCharacterMovement();
 
         // +180 so that Vector3.forward matches CameraAngleY == 0
         camera.transform.position = new Vector3(
@@ -27,6 +34,35 @@ public class TopDownController : MonoBehaviour
             cameraTarget.position.z + Mathf.Cos((180 + cameraAngle) * Mathf.Deg2Rad) * cameraDistance
         );
         camera.transform.LookAt(cameraTarget);
+    }
+
+    private void HandleCharacterMovement()
+    {
+        if (!enableCharacterMovement)
+            return;
+
+        var inputDirection = new Vector3(
+            Input.GetAxis("Horizontal"),
+            0,
+            Input.GetAxis("Vertical")
+        );
+
+        if (inputDirection == Vector3.zero)
+            return;
+
+        // MOVEMENT
+        var direction = characterSpeed * Time.deltaTime * (Quaternion.Euler(0, cameraAngle, 0) * inputDirection);
+        // add gravity
+        direction += gravity * Time.deltaTime * Vector3.down;
+        // apply movement
+        character.Move(direction);
+
+        // ROTATION
+        character.transform.eulerAngles = new Vector3(
+            character.transform.eulerAngles.x,
+            cameraAngle + Mathf.Rad2Deg * Mathf.Atan2(inputDirection.x, inputDirection.z),
+            character.transform.eulerAngles.z
+        );
     }
 
     private void HandleCameraMargins()
