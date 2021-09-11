@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CombatUnit : MonoBehaviour
@@ -12,9 +13,28 @@ public class CombatUnit : MonoBehaviour
     public event Action<DamageEventData> OnDamage;
     public event Action<DeathEventData> OnDeath;
 
+    public readonly List<DamageModifier> modifiers = new List<DamageModifier>();
+
     private void Start()
     {
         hp = maxHp;
+        modifiers.Add(new DamageMultiply(2));
+    }
+    private void Update()
+    {
+        var expired = new List<DamageModifier>();
+
+        // update timers for modifiers and save expired ones
+        foreach (var modifier in modifiers)
+        {
+            modifier.UpdateTimers(Time.deltaTime);
+            if (modifier.Expired)
+                expired.Add(modifier);
+        }
+        
+        // remove expired modifiers
+        foreach (var modifier in expired)
+            modifiers.Remove(modifier);
     }
 
     public void Damage(float dmg)
@@ -36,9 +56,7 @@ public class CombatUnit : MonoBehaviour
             dmgReceived = dmg
         };
 
-        // to do: Armor effects here
-        var actualDmg = dmg;
-
+        var actualDmg = ApplyDamageModifiers(dmg);
         hp -= actualDmg;
         
         // trigger damage event
@@ -68,5 +86,12 @@ public class CombatUnit : MonoBehaviour
 
         hp = 0;
         OnDeath?.Invoke(deathEvent);
+    }
+
+    private float ApplyDamageModifiers(float dmg)
+    {
+        foreach (var modifier in modifiers)
+            dmg = modifier.Apply(this, dmg);
+        return dmg;
     }
 }
