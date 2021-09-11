@@ -3,7 +3,6 @@ using UnityEngine;
 public class AbilityTargeting : MonoBehaviour
 {
     public new Camera camera;
-    public Transform character;
 
     public Transform pointTarget;
     public Transform arrowTarget;
@@ -15,13 +14,49 @@ public class AbilityTargeting : MonoBehaviour
     public Vector3 targetPosition = Vector3.zero;
     public Vector3 targetDirection = Vector3.zero;
 
-    private void Start()
-    {
-        pointTarget.gameObject.SetActive(false);
-        arrowTarget.gameObject.SetActive(false);
-    }
+    private Transform origin = null;
+    private Transform currentTarget = null;
 
     private void Update()
+    {
+        CalculateTargeting();
+    }
+
+    public void StartPointTargeting(bool quickCast = false)
+    {
+        if (isTargeting)
+            StopTargeting();
+
+        isTargeting = true;
+        usingArrowTarget = false;
+        if (!quickCast)
+            currentTarget = Instantiate(pointTarget, gameObject.transform);
+
+        CalculateTargeting();
+    }
+    public void StartArrowTargeting(Transform origin, bool quickCast = false)
+    {
+        this.origin = origin;
+
+        if (isTargeting)
+            StopTargeting();
+
+        isTargeting = true;
+        usingArrowTarget = true;
+        if (!quickCast)
+            currentTarget = Instantiate(arrowTarget, gameObject.transform);
+
+        CalculateTargeting();
+    }
+    public void StopTargeting()
+    {
+        if (isTargeting && currentTarget)
+            Destroy(currentTarget.gameObject);
+
+        isTargeting = false;
+    }
+
+    private void CalculateTargeting()
     {
         if (!isTargeting)
             return;
@@ -30,39 +65,21 @@ public class AbilityTargeting : MonoBehaviour
         if (Physics.Raycast(cameraRay, out RaycastHit hit, Mathf.Infinity, floorLayerMask))
         {
             targetPosition = hit.point;
-            targetDirection = hit.point - character.position;
+            targetDirection = hit.point - origin.position;
 
-            if (usingArrowTarget)
+            if (currentTarget != null)
             {
-                var direction = hit.point - character.position;
-                arrowTarget.position = character.position;
-                arrowTarget.eulerAngles = new Vector3(0, 180 + Mathf.Rad2Deg * Mathf.Atan2(direction.x, direction.z), 0);
-            }
-            else
-            {
-                pointTarget.position = hit.point;
+                if (usingArrowTarget)
+                {
+                    var direction = hit.point - origin.position;
+                    currentTarget.position = origin.position;
+                    currentTarget.eulerAngles = new Vector3(0, 180 + Mathf.Rad2Deg * Mathf.Atan2(direction.x, direction.z), 0);
+                }
+                else
+                {
+                    currentTarget.position = hit.point;
+                }
             }
         }
-    }
-
-    public void StartPointTargeting()
-    {
-        isTargeting = true;
-        usingArrowTarget = false;
-        pointTarget.gameObject.SetActive(true);
-    }
-    public void StartArrowTargeting()
-    {
-        isTargeting = true;
-        usingArrowTarget = true;
-        arrowTarget.gameObject.SetActive(true);
-    }
-    public void StopTargeting()
-    {
-        isTargeting = false;
-        if (usingArrowTarget)
-            arrowTarget.gameObject.SetActive(false);
-        else
-            pointTarget.gameObject.SetActive(false);
     }
 }
