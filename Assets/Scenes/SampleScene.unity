@@ -411,26 +411,6 @@ PrefabInstance:
       propertyPath: abilitiesSource
       value: 
       objectReference: {fileID: 7392255024555278626}
-    - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
-      propertyPath: ability1.button
-      value: 323
-      objectReference: {fileID: 0}
-    - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
-      propertyPath: ability2.button
-      value: 324
-      objectReference: {fileID: 0}
-    - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
-      propertyPath: ability2.projectile
-      value: 
-      objectReference: {fileID: 4893451587644981610, guid: 73decbbc1369f4c40ab75e8265b53a9a, type: 3}
-    - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
-      propertyPath: ability2.sizeMultiplier
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
-      propertyPath: ability2.speedMultiplier
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
 --- !u!1 &181989607 stripped

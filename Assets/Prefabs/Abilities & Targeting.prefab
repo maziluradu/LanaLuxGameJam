@@ -70,26 +70,34 @@ MonoBehaviour:
   abilitiesSource: {fileID: 0}
   targeting: {fileID: 6164089409224766670}
   ability1:
-    button: 113
+    button: 323
     quickCast: 1
     onCooldown: 0
+    cooldown: 1
     projectile: {fileID: 4893451587644981610, guid: e028648dddd89484898c836dc5927137, type: 3}
     parent: {fileID: 0}
   ability2:
-    button: 49
+    button: 324
     quickCast: 0
     onCooldown: 0
-    projectile: {fileID: 0}
+    cooldown: 1
+    projectile: {fileID: 4893451587644981610, guid: 73decbbc1369f4c40ab75e8265b53a9a, type: 3}
     parent: {fileID: 0}
+    holdDuration: 2
+    damageMultiplier: 3
+    sizeMultiplier: 5
+    speedMultiplier: 0.5
   ability3:
     button: 49
     quickCast: 0
     onCooldown: 0
+    cooldown: 1
     projectile: {fileID: 0}
     parent: {fileID: 0}
   ability4:
     button: 49
     quickCast: 0
     onCooldown: 0
+    cooldown: 1
     projectile: {fileID: 0}
     parent: {fileID: 0}
