@@ -18,6 +18,10 @@ public class ProjectileAbility : Ability
             instance.direction = targeting.targetDirection;
 
             targeting.StopTargeting();
+
+            // put on cooldown
+            Timer = 0;
+            onCooldown = true;
         }
         else
         {

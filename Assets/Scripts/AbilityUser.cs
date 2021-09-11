@@ -14,14 +14,16 @@ public class AbilityUser : MonoBehaviour
 
     void Update()
     {
-        CheckAbility(ability1);
-        CheckAbility(ability2);
-        CheckAbility(ability3);
-        CheckAbility(ability4);
+        HandleAbility(ability1);
+        HandleAbility(ability2);
+        HandleAbility(ability3);
+        HandleAbility(ability4);
     }
 
-    private void CheckAbility(Ability ability)
+    private void HandleAbility(Ability ability)
     {
+        ability.UpdateCooldown(Time.deltaTime);
+
         if (!ability.onCooldown && Input.GetKeyDown(ability.button))
             ability.Use(this, abilitiesSource.position, targeting);
     }
