@@ -18,7 +18,6 @@ public class CombatUnit : MonoBehaviour
     private void Start()
     {
         hp = maxHp;
-        modifiers.Add(new DamageMultiply(2));
     }
     private void Update()
     {
