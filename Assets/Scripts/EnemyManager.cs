@@ -4,12 +4,27 @@ using UnityEngine;
 
 public class EnemyManager : AIManager
 {
+    [Min(0)][Tooltip("Spawn enemies every x seconds. Use 0 to only spawn at start")]
+    public float interval = 10f;
     public float enemyScattering = 2.0f;
     public int enemiesCount = 10;
 
-    public void Start()
+    private float timer = 0f;
+
+
+    private void Start()
     {
         this.SpawnEnemies(enemiesCount);
+    }
+    public void Update()
+    {
+        timer += Time.deltaTime;
+
+        if (interval > 0 && timer >= interval)
+        {
+            timer = 0;
+            this.SpawnEnemies(enemiesCount);
+        }
     }
 
     public void SpawnEnemies(int numberOfEnemies)

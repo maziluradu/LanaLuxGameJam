@@ -797,6 +797,7 @@ MonoBehaviour:
   AIPrefabs:
   - {fileID: 5524554379008799957, guid: 632b9a825d200d54c8ad52fb0f8c3172, type: 3}
   SpawnPoint: {fileID: 705018566}
+  interval: 10
   enemyScattering: 2
   enemiesCount: 10
 --- !u!114 &434074707
