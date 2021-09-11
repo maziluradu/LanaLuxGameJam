@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class TopDownController : MonoBehaviour
 {
+    [Header("Camera")]
     public new Camera camera;
     public Transform cameraTarget;
+    public BoxCollider cameraBounds;
+    [Header("Character")]
     public CharacterController character;
     public CharacterAnimator animator;
 
@@ -23,18 +26,36 @@ public class TopDownController : MonoBehaviour
     public float characterSpeed = 5f;
     public float gravity = 10f;
 
+    private Vector3 actualCameraTarget;
+
     void Update()
     {
+        actualCameraTarget = cameraTarget.position;
+        if (cameraBounds != null)
+        {
+            var actualCameraBounds = Vector3.Scale(cameraBounds.size, cameraBounds.transform.lossyScale);
+            actualCameraTarget.x = Mathf.Clamp(
+                actualCameraTarget.x,
+                cameraBounds.transform.position.x - actualCameraBounds.x,
+                cameraBounds.transform.position.x + actualCameraBounds.x
+            );
+            actualCameraTarget.z = Mathf.Clamp(
+                actualCameraTarget.z,
+                cameraBounds.transform.position.z - actualCameraBounds.z,
+                cameraBounds.transform.position.z + actualCameraBounds.z
+            );
+        }
+
         HandleCameraMargins();
         HandleCharacterMovement();
 
         // +180 so that Vector3.forward matches CameraAngleY == 0
         camera.transform.position = new Vector3(
-            cameraTarget.position.x + Mathf.Sin((180 + cameraAngle) * Mathf.Deg2Rad) * cameraDistance,
-            cameraTarget.position.y + cameraHeight,
-            cameraTarget.position.z + Mathf.Cos((180 + cameraAngle) * Mathf.Deg2Rad) * cameraDistance
+            actualCameraTarget.x + Mathf.Sin((180 + cameraAngle) * Mathf.Deg2Rad) * cameraDistance,
+            actualCameraTarget.y + cameraHeight,
+            actualCameraTarget.z + Mathf.Cos((180 + cameraAngle) * Mathf.Deg2Rad) * cameraDistance
         );
-        camera.transform.LookAt(cameraTarget);
+        camera.transform.LookAt(actualCameraTarget);
     }
 
     private void HandleCharacterMovement()
@@ -120,6 +141,6 @@ public class TopDownController : MonoBehaviour
         }
 
         if (direction != Vector3.zero)
-            cameraTarget.position += Quaternion.Euler(0, cameraAngle, 0) * direction;
+            actualCameraTarget += Quaternion.Euler(0, cameraAngle, 0) * direction;
     }
 }
