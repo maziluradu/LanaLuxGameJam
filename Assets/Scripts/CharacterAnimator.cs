@@ -3,8 +3,11 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class CharacterAnimator : MonoBehaviour
 {
-    public string idleId = "Idle";
-    public string walkId = "Walk";
+    // inspector variables
+    [SerializeField] private string damageId = "Damage";
+    [SerializeField] private string dieId = "Die";
+    [SerializeField] private string idleId = "Idle";
+    [SerializeField] private string walkId = "Walk";
 
     private Animator animator;
     private bool idle = true;
@@ -25,6 +28,14 @@ public class CharacterAnimator : MonoBehaviour
         animator.SetBool(walkId, walk);
     }
 
+    public void Damage()
+    {
+        animator.SetTrigger(damageId);
+    }
+    public void Die()
+    {
+        animator.SetBool(dieId, true);
+    }
     public void Idle()
     {
         if (walk)
