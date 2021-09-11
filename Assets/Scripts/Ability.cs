@@ -19,9 +19,11 @@ public abstract class Ability
         Timer = cooldown;
     }
 
-    public abstract void Use(AbilityUser user, Vector3 origin, AbilityTargeting targeting);
+    public abstract void Press(AbilityUser user, AbilityTargeting targeting);
+    public abstract void Hold(AbilityUser user, AbilityTargeting targeting);
+    public abstract void Release (AbilityUser user, AbilityTargeting targeting);
 
-    public void UpdateCooldown(float deltaTime)
+    public virtual void UpdateTimers(float deltaTime)
     {
         Timer += deltaTime;
         onCooldown = Timer < cooldown;

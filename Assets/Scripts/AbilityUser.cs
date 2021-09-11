@@ -8,7 +8,7 @@ public class AbilityUser : MonoBehaviour
 
     [Header("Abilities")]
     public ProjectileAbility ability1;
-    public ProjectileAbility ability2;
+    public HoldProjectileAbility ability2;
     public ProjectileAbility ability3;
     public ProjectileAbility ability4;
 
@@ -22,9 +22,16 @@ public class AbilityUser : MonoBehaviour
 
     private void HandleAbility(Ability ability)
     {
-        ability.UpdateCooldown(Time.deltaTime);
+        ability.UpdateTimers(Time.deltaTime);
 
-        if (!ability.onCooldown && Input.GetKeyDown(ability.button))
-            ability.Use(this, abilitiesSource.position, targeting);
+        if (!ability.onCooldown)
+        {
+            if (Input.GetKeyDown(ability.button))
+                ability.Press(this, targeting);
+            else if (Input.GetKey(ability.button))
+                ability.Hold(this, targeting);
+            else if (Input.GetKeyUp(ability.button))
+                ability.Release(this, targeting);
+        }
     }
 }
