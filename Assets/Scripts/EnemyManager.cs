@@ -5,10 +5,11 @@ using UnityEngine;
 public class EnemyManager : AIManager
 {
     public float enemyScattering = 2.0f;
+    public int enemiesCount = 10;
 
     public void Start()
     {
-        this.SpawnEnemies(10);
+        this.SpawnEnemies(enemiesCount);
     }
 
     public void SpawnEnemies(int numberOfEnemies)

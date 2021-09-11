@@ -510,8 +510,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5524554379008498381}
   - component: {fileID: 5524554379018299457}
-  - component: {fileID: -5324673142960085557}
   - component: {fileID: 5290084067575952504}
+  - component: {fileID: 3708904180859941434}
+  - component: {fileID: -5324673142960085557}
+  - component: {fileID: 19032193480562457}
   m_Layer: 0
   m_Name: Skeleton_1
   m_TagString: Untagged
@@ -554,18 +556,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-5324673142960085557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5524554379008799957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73ffd730cc333aa4e85287e5de3073f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!195 &5290084067575952504
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -588,6 +578,53 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &3708904180859941434
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5524554379008799957}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 1.57
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.76, z: 0}
+--- !u!114 &-5324673142960085557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5524554379008799957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ffd730cc333aa4e85287e5de3073f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  onAIDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  onAIDealDamage:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &19032193480562457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5524554379008799957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0274dd2f3ef5af64ab743cbf0c061f55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  hp: 100
 --- !u!1 &5524554379008801495
 GameObject:
   m_ObjectHideFlags: 0

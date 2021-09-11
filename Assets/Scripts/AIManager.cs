@@ -9,48 +9,36 @@ public class AIManager : MonoBehaviour
     public List<GameObject> AIPrefabs = new List<GameObject>();
     public Transform SpawnPoint;
 
-    public void KillAI(AIController ai)
-    {
-        ai.Kill();
-    }
-
-    public void DamageAI(AIController ai, float damage)
-    {
-        ai.Damage(damage);
-    }
-
     protected virtual AIController SpawnAI(GameObject prefab)
     {
-        return this.SpawnAI(prefab, this.SpawnPoint.transform.position, this.transform.rotation);
+        return SpawnAI(prefab, this.SpawnPoint.transform.position, this.transform.rotation);
     }
 
     protected virtual AIController SpawnAI(GameObject prefab, Vector3 position, Quaternion rotation)
     {
         AIController spawnedAI = Instantiate(prefab, position, rotation).GetComponent<AIController>();
 
-        this.AIs.Add(spawnedAI);
-        this.AssignAIListeners(spawnedAI);
+        AIs.Add(spawnedAI);
+        AddListeners(spawnedAI);
 
         return spawnedAI;
     }
 
-    protected void AssignAIListeners(AIController ai)
+    protected void AddListeners(AIController ai)
     {
-        // TODO: Remove listeners (if they are not garbage-collected)
-
-        ai.onAIDied.AddListener(
-            () => {
-                RemoveAI(ai);
-            }
-        );
+        ai.CombatUnit.OnDeath += HandleOnDeath;
     }
 
-    public void RemoveAI(AIController ai)
+    private void HandleOnDeath(DeathEventData eventData)
     {
-        if (this.AIs.Contains(ai))
+        var ai = eventData.victim.GetComponent<AIController>();
+        if (ai == null)
         {
-            this.AIs.Remove(ai);
+            Debug.LogError("AIManager: Death event for non-ai");
+            return;
         }
-        Destroy(ai.gameObject);
+
+        ai.CombatUnit.OnDeath -= HandleOnDeath;
+        AIs.Remove(ai);
     }
 }
