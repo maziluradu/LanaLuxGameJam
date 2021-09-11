@@ -12,21 +12,21 @@ public class UIStatsModifier : MonoBehaviour
 
     public void Update()
     {
-        foreach (RectMask2D skill in Skills)
-        {
-            float skillCooldownLocalScale = skill.GetComponent<RectTransform>().rect.height;
+        //foreach (RectMask2D skill in Skills)
+        //{
+        //    float skillCooldownLocalScale = skill.GetComponent<RectTransform>().rect.height;
 
-            if (skill.padding.w > skillCooldownLocalScale)
-            {
-                skill.padding = new Vector4(skill.padding.x, skill.padding.y, skill.padding.z, skillCooldownLocalScale);
-                continue;
-            }
+        //    if (skill.padding.w > skillCooldownLocalScale)
+        //    {
+        //        skill.padding = new Vector4(skill.padding.x, skill.padding.y, skill.padding.z, skillCooldownLocalScale);
+        //        continue;
+        //    }
 
-            if (skill.padding.w < skillCooldownLocalScale)
-            {
-                skill.padding = new Vector4(skill.padding.x, skill.padding.y, skill.padding.z, skill.padding.w + Time.deltaTime * 5);
-            }
-        }
+        //    if (skill.padding.w < skillCooldownLocalScale)
+        //    {
+        //        skill.padding = new Vector4(skill.padding.x, skill.padding.y, skill.padding.z, skill.padding.w + Time.deltaTime * 5);
+        //    }
+        //}
     }
 
     public void SetHealth(float health)
