@@ -2,10 +2,12 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(CharacterAnimator))]
 [RequireComponent(typeof(CombatUnit))]
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIController : MonoBehaviour
 {
+    public float destroyDelay = 5f;
     public GameObject target;
 
     [HideInInspector]
@@ -13,6 +15,7 @@ public class AIController : MonoBehaviour
     [HideInInspector]
     public UnityEvent<GameObject> onAIDealDamage = new UnityEvent<GameObject>();
 
+    private CharacterAnimator animator;
     private CombatUnit combatUnit;
     private NavMeshAgent navMeshAgent;
 
@@ -20,13 +23,16 @@ public class AIController : MonoBehaviour
 
     public void OnEnable()
     {
+        animator = GetComponent<CharacterAnimator>();
         combatUnit = GetComponent<CombatUnit>();
         navMeshAgent = GetComponent<NavMeshAgent>();
 
+        combatUnit.OnDamage += HandleOnDamage;
         combatUnit.OnDeath += HandleOnDeath;
     }
     public void OnDisable()
     {
+        combatUnit.OnDamage -= HandleOnDamage;
         combatUnit.OnDeath -= HandleOnDeath;
     }
 
@@ -34,7 +40,12 @@ public class AIController : MonoBehaviour
     {
         if (target != null)
         {
-            this.MoveTo(target.transform.position);
+            MoveTo(target.transform.position);
+            animator.Walk();
+        }
+        else
+        {
+            animator.Idle();
         }
     }
 
@@ -43,8 +54,15 @@ public class AIController : MonoBehaviour
         this.navMeshAgent.SetDestination(position);
     }
 
+    private void HandleOnDamage(DamageEventData eventData)
+    {
+        animator.Damage();
+    }
     private void HandleOnDeath(DeathEventData eventData)
     {
-        
+        animator.Die();
+        target = null;
+        navMeshAgent.isStopped = true;
+        Destroy(gameObject, destroyDelay);
     }
 }
