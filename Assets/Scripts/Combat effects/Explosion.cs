@@ -31,7 +31,7 @@ public class Explosion : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var unit = other.GetComponent<CombatUnit>();
-        if (unit != null)
+        if (unit != null && unit.IsAlive)
         {
             // unit already hit, we can exit
             if (hits.Contains(unit))
