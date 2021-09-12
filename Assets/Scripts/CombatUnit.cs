@@ -5,19 +5,41 @@ using UnityEngine;
 public class CombatUnit : MonoBehaviour
 {
     [Min(0)]
-    public float maxHp = 100f;
+    [InspectorName("Max HP")]
+    [SerializeField] protected float _maxHp = 100f;
 
     [Header("Read only")]
-    public float hp = 100f;
+    [SerializeField] protected float _hp = 100f;
 
     public event Action<DamageEventData> OnDamage;
     public event Action<DeathEventData> OnDeath;
 
     public readonly List<DamageModifier> modifiers = new List<DamageModifier>();
 
+    #region Public properties
+    public float MaxHp
+    {
+        get => _maxHp;
+        set
+        {
+            _maxHp = Mathf.Max(0, value);
+            _hp = Mathf.Min(_hp, _maxHp);
+        }
+    }
+    public float Hp
+    {
+        get => _hp;
+        set => _hp = Mathf.Clamp(value, 0, _maxHp);
+    }
+    public bool IsAlive => Hp > 0;
+    public bool IsDead => Hp == 0;
+    #endregion
+
     private void Start()
     {
-        hp = maxHp;
+        // use checks from properties to set these
+        MaxHp = _maxHp;
+        Hp = _maxHp;
     }
     private void Update()
     {
@@ -43,7 +65,7 @@ public class CombatUnit : MonoBehaviour
         {
             victim = gameObject,
             attacker = null, // to do if needed
-            hpBefore = hp,
+            hpBefore = Hp,
             dmgRequested = dmg
         };
         // prepare event in case of death
@@ -51,23 +73,23 @@ public class CombatUnit : MonoBehaviour
         {
             victim = gameObject,
             killer = null, // to do if needed
-            hpBeforeDeath = hp,
+            hpBeforeDeath = Hp,
             dmgReceived = dmg
         };
 
         var actualDmg = ApplyDamageModifiers(dmg);
-        hp -= actualDmg;
+        Hp -= actualDmg;
         
         // trigger damage event
         if (actualDmg > 0)
         {
-            damageEvent.hpAfter = hp;
+            damageEvent.hpAfter = Hp;
             damageEvent.dmgReceived = actualDmg;
 
             OnDamage?.Invoke(damageEvent);
         }
         // trigger death event
-        if (hp <= 0)
+        if (Hp <= 0)
         {
             OnDeath?.Invoke(deathEvent);
         }
@@ -79,11 +101,11 @@ public class CombatUnit : MonoBehaviour
         {
             victim = gameObject,
             killer = null, // to do if needed
-            hpBeforeDeath = hp,
-            dmgReceived = hp
+            hpBeforeDeath = Hp,
+            dmgReceived = Hp
         };
 
-        hp = 0;
+        Hp = 0;
         OnDeath?.Invoke(deathEvent);
     }
 

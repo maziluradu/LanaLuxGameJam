@@ -30,7 +30,7 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var unit = other.GetComponent<CombatUnit>();
-        if (unit != null)
+        if (unit != null && unit.IsAlive)
         {
             unit.Damage(damage);
 
