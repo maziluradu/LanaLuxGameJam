@@ -473,6 +473,10 @@ PrefabInstance:
       propertyPath: fireBallSpell.projectile
       value: 
       objectReference: {fileID: 5042950679077643293, guid: f20430eb725a6604b8f3da7d1dc8fb3f, type: 3}
+    - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
+      propertyPath: windBallSpell.projectile
+      value: 
+      objectReference: {fileID: 5042950679077643293, guid: 0f49eedbb5b087445889f1d2a79f70bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
 --- !u!1 &181989607 stripped
