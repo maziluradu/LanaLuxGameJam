@@ -29,7 +29,7 @@ public class AIManager : MonoBehaviour
         ai.CombatUnit.OnDeath += HandleOnDeath;
     }
 
-    private void HandleOnDeath(DeathEventData eventData)
+    protected virtual void HandleOnDeath(DeathEventData eventData)
     {
         var ai = eventData.victim.GetComponent<AIController>();
         if (ai == null)

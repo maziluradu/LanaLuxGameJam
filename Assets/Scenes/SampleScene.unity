@@ -846,6 +846,13 @@ MonoBehaviour:
   interval: 10
   enemyScattering: 2
   enemiesCount: 10
+  enemyMultiplierForEachWave: 1.2
+  onWaveEnded:
+    m_PersistentCalls:
+      m_Calls: []
+  onWaveStarted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &434074707
 MonoBehaviour:
   m_ObjectHideFlags: 0
