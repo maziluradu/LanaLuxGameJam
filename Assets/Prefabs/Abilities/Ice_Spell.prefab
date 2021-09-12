@@ -9818,7 +9818,7 @@ GameObject:
   - component: {fileID: 5249025335846715245}
   - component: {fileID: 7147509412839276175}
   m_Layer: 0
-  m_Name: ph_Ice_Spell_01
+  m_Name: Ice_Spell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9869,7 +9869,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.87}
 --- !u!114 &7147509412839276175
 MonoBehaviour:
   m_ObjectHideFlags: 0
