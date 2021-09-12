@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ph_Explosion
+  m_Name: ph_Fire_Ball
   m_Shader: {fileID: -6465566751694194690, guid: 8bd4a9aba9ff50d40ab5d3301930a2d4, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -32,11 +32,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_096c6f25fc774473aebf88ddf5d0bec1: 0.32
+    - Vector1_096c6f25fc774473aebf88ddf5d0bec1: 0.33
     - Vector1_415eb6f198244bdc8d39180d7dc558df: 0.8
     - Vector1_ccc8a2509ec24a259cdc3b588551d475: 1
     m_Colors:
-    - Color_3aa1af45a2d84581b305780c3b6e5a86: {r: 1, g: 0.33636326, b: 0, a: 1}
-    - Color_5f450f9a4761477f9296ae1f499886df: {r: 1, g: 0.027940515, b: 0, a: 1}
+    - Color_3aa1af45a2d84581b305780c3b6e5a86: {r: 1, g: 1, b: 1, a: 1}
+    - Color_5f450f9a4761477f9296ae1f499886df: {r: 1, g: 0, b: 0, a: 1}
     - Vector2_2e0e0e55bdad45e0aab052a90deb4276: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ph_Ice_Spell
+  m_Name: ph_Ice_Ball
   m_Shader: {fileID: -6465566751694194690, guid: 8bd4a9aba9ff50d40ab5d3301930a2d4, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
