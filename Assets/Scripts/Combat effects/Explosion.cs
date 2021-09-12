@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SphereCollider))]
 public class Explosion : MonoBehaviour
 {
     public float sizeMultiplier = 2f;
@@ -21,7 +22,7 @@ public class Explosion : MonoBehaviour
         collider = GetComponent<SphereCollider>();
         originalRadius = collider.radius;
         Destroy(gameObject, lifetime);
-        Destroy(collider, colliderLifetime);
+        Destroy(this, colliderLifetime);
     }
 
     private void Update()

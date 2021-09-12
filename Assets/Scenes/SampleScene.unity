@@ -442,9 +442,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9291165}
     - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
+      propertyPath: wallSpell.iceWall
+      value: 
+      objectReference: {fileID: 3458888749983569437, guid: 3364c1da97f3cfd4dbeaa372adb155f1, type: 3}
+    - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
+      propertyPath: _lastElementalType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
+      propertyPath: wallSpell.fireWall
+      value: 
+      objectReference: {fileID: 795355291091920422, guid: 602892bea8c62b34d9721fdfb1960294, type: 3}
+    - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
+      propertyPath: wallSpell.windWall
+      value: 
+      objectReference: {fileID: 7054669441277371849, guid: 43c7e1fcd2534bf4796c1ac988486fae, type: 3}
+    - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
       propertyPath: ability1.projectile
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
+      propertyPath: wallSpell.earthWall
+      value: 
+      objectReference: {fileID: 5809325624997715114, guid: dc9b5a68bec07214c8637712cb0c8bf5, type: 3}
     - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
       propertyPath: iceBallSpell.projectile
       value: 
