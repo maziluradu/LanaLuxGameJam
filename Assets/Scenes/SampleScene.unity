@@ -595,7 +595,7 @@ PrefabInstance:
     - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
       propertyPath: wallSpell.windWall
       value: 
-      objectReference: {fileID: 7054669441277371849, guid: 43c7e1fcd2534bf4796c1ac988486fae, type: 3}
+      objectReference: {fileID: 5944358762433553651, guid: 0a6f0404a4560324f8db627f1ac8e985, type: 3}
     - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
       propertyPath: ability1.projectile
       value: 
