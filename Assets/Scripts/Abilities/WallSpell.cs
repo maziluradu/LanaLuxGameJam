@@ -29,10 +29,10 @@ public class WallSpell : Ability
         }
 
         // get target
-        targeting.StartPointTargeting(quickCast = true);
+        targeting.StartPointTargeting(user.character.transform, quickCast = true);
 
         // instantiate wall
-        UnityEngine.Object.Instantiate(wall, targeting.targetPosition, Quaternion.identity, instancesParent);
+        UnityEngine.Object.Instantiate(wall, targeting.targetPosition, Quaternion.LookRotation(targeting.targetDirection), instancesParent);
 
         PutOnCooldown();
     }
