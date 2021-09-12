@@ -69,35 +69,42 @@ MonoBehaviour:
   character: {fileID: 0}
   abilitiesSource: {fileID: 0}
   targeting: {fileID: 6164089409224766670}
-  ability1:
+  wallSpell:
     button: 323
+    quickCast: 1
+    onCooldown: 0
+    cooldown: 1
+    fireWall: {fileID: -2944072437426455613, guid: 602892bea8c62b34d9721fdfb1960294, type: 3}
+    iceWall: {fileID: -6985725510838205693, guid: 3364c1da97f3cfd4dbeaa372adb155f1, type: 3}
+    windWall: {fileID: -8299941952429164601, guid: 43c7e1fcd2534bf4796c1ac988486fae, type: 3}
+    earthWall: {fileID: 9021302148003857058, guid: dc9b5a68bec07214c8637712cb0c8bf5, type: 3}
+    instancesParent: {fileID: 0}
+  fireBallSpell:
+    button: 113
     quickCast: 1
     onCooldown: 0
     cooldown: 1
     projectile: {fileID: 4893451587644981610, guid: e028648dddd89484898c836dc5927137, type: 3}
     parent: {fileID: 0}
-  ability2:
-    button: 324
-    quickCast: 0
+  iceBallSpell:
+    button: 101
+    quickCast: 1
     onCooldown: 0
     cooldown: 1
-    projectile: {fileID: 4893451587644981610, guid: 73decbbc1369f4c40ab75e8265b53a9a, type: 3}
+    projectile: {fileID: 4893451587644981610, guid: 61b9ddbcf8a2ce24aa062a7bc3b006b8, type: 3}
     parent: {fileID: 0}
-    holdDuration: 2
-    damageMultiplier: 3
-    sizeMultiplier: 5
-    speedMultiplier: 0.5
-  ability3:
-    button: 49
-    quickCast: 0
+  windBallSpell:
+    button: 114
+    quickCast: 1
     onCooldown: 0
     cooldown: 1
-    projectile: {fileID: 0}
+    projectile: {fileID: 4893451587644981610, guid: 0449d050b1838fe42bcdde0d907baa73, type: 3}
     parent: {fileID: 0}
-  ability4:
-    button: 49
-    quickCast: 0
+  earthBallSpell:
+    button: 102
+    quickCast: 1
     onCooldown: 0
     cooldown: 1
-    projectile: {fileID: 0}
+    projectile: {fileID: 4893451587644981610, guid: eb40e4d557a645c4facf5f71522f1d0a, type: 3}
     parent: {fileID: 0}
+  _lastElementalType: 0
