@@ -4953,7 +4953,7 @@ GameObject:
   - component: {fileID: 731538013260861585}
   - component: {fileID: -3772409249731598849}
   - component: {fileID: 5249025335846715245}
-  - component: {fileID: 7147509412839276175}
+  - component: {fileID: 5042950679077643293}
   m_Layer: 0
   m_Name: ph_Fire_Spell_01
   m_TagString: Untagged
@@ -5006,7 +5006,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0.36, y: 0, z: 0}
---- !u!114 &7147509412839276175
+--- !u!114 &5042950679077643293
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5015,14 +5015,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7741218905476690564}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfe959b614fce304aa7719271c2498ea, type: 3}
+  m_Script: {fileID: 11500000, guid: 85514faab15b0de45b78b21e5a97cd8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 1, z: 0}
+  direction: {x: 0, y: 0, z: 0}
   speed: 20
   lifetime: 10
-  damage: 100
+  damage: 10
   destroyOnHit: 0
-  useExplostion: 0
-  explosion: {fileID: 0}
-  explosionParent: {fileID: 0}
+  fireEffect: {fileID: 5985519522266575152, guid: 18e61da89b1ade940b2424d028f7b166, type: 3}
+  iceEffect: {fileID: 0}
+  windEffect: {fileID: 0}
+  earthEffect: {fileID: 0}
+  hitFireWall: 0
