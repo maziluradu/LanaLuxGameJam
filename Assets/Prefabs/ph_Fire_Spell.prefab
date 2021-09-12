@@ -129,7 +129,7 @@ MonoBehaviour:
   speed: 20
   lifetime: 10
   damage: 50
-  destroyOnHit: 0
+  destroyOnHit: 1
   useExplostion: 1
   explosion: {fileID: 5507577109391880051, guid: 9958cf4cf59e01646b3b3cd613efc3a9, type: 3}
   explosionParent: {fileID: 0}
