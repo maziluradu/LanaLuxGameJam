@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4893451587644981608}
   - component: {fileID: 6845256136821150646}
   - component: {fileID: 4893451587644981609}
-  - component: {fileID: 4893451587644981610}
+  - component: {fileID: 3501472135073734743}
   m_Layer: 0
   m_Name: ph_Earth_Ball
   m_TagString: Untagged
@@ -113,7 +113,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4893451587644981610
+--- !u!114 &3501472135073734743
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,14 +122,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 4893451587644981611}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfe959b614fce304aa7719271c2498ea, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d7e10170c6dae74593285fd518ccc69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
   speed: 10
   lifetime: 10
   damage: 30
-  destroyOnHit: 0
-  useExplostion: 0
-  explosion: {fileID: 0}
-  explosionParent: {fileID: 0}
+  destroyOnHit: 1
+  fireEffect: {fileID: 3273447960678807984, guid: a61deeebec7e8c04c98cbf7620642b38, type: 3}
+  iceEffect: {fileID: 0}
+  windEffect: {fileID: 0}
+  earthEffect: {fileID: 0}
+  fireTrailInterval: 0.2
+  hitFireWall: 0
+  fireTrailTimer: 0
