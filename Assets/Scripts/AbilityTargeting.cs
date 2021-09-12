@@ -4,6 +4,7 @@ public class AbilityTargeting : MonoBehaviour
 {
     public new Camera camera;
     public LayerMask floorLayerMask;
+    public float range = 10f;
 
     [Header("Read only")]
     public bool isTargeting = false;
@@ -20,6 +21,8 @@ public class AbilityTargeting : MonoBehaviour
 
     public void StartPointTargeting(Transform origin, bool quickCast = false)
     {
+        this.origin = origin;
+
         if (isTargeting)
             StopTargeting();
 
@@ -53,7 +56,7 @@ public class AbilityTargeting : MonoBehaviour
         var cameraRay = camera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(cameraRay, out RaycastHit hit, Mathf.Infinity, floorLayerMask))
         {
-            targetPosition = hit.point;
+            targetPosition = origin.position + Vector3.ClampMagnitude(hit.point - origin.position, range);
             targetDirection = hit.point - origin.position;
         }
     }

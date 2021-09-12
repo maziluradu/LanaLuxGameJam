@@ -27,10 +27,6 @@ public class AbilityUser : MonoBehaviour
         HandleElementalBall(iceBallSpell);
         HandleElementalBall(windBallSpell);
     }
-    private void OnGUI()
-    {
-        GUILayout.Button(LastElementalType.ToString());
-    }
 
     private void HandleWall(WallSpell ability)
     {
