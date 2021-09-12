@@ -1,30 +1,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SphereCollider))]
 public class Explosion : MonoBehaviour
 {
     public float sizeMultiplier = 2f;
     [Min(0)]
     public float duration = 1f;
     public float damage = 100f;
+    public float colliderLifetime = 10f;
     public float lifetime = 10f;
     public bool createExplosionOnDeath = false;
-
+    
     private readonly List<CombatUnit> hits = new List<CombatUnit>();
-    private Vector3 originalSize = Vector3.one;
+    private float originalRadius = 1.0f;
     private float timer = 0;
+    private new SphereCollider collider;
 
     private void Start()
     {
-        originalSize = transform.localScale;
+        collider = GetComponent<SphereCollider>();
+        originalRadius = collider.radius;
         Destroy(gameObject, lifetime);
+        Destroy(collider, colliderLifetime);
     }
+
     private void Update()
     {
         timer += Time.deltaTime;
         var multiplier = Mathf.Lerp(1, sizeMultiplier, Mathf.Clamp01(timer / duration));
-        transform.localScale = multiplier * originalSize;
+        collider.radius = multiplier * originalRadius;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -45,7 +49,7 @@ public class Explosion : MonoBehaviour
             if (createExplosionOnDeath && unit.IsDead)
             {
                 var instance = Instantiate(this, unit.transform.position, unit.transform.rotation, gameObject.transform.parent);
-                instance.transform.localScale = originalSize;
+                instance.GetComponent<SphereCollider>().radius = originalRadius;
             }
         }
     }

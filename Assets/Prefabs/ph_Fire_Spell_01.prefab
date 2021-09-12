@@ -488,8 +488,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.9
-      minScalar: 2
+      scalar: 1.8
+      minScalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -541,8 +541,8 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.33
-      minScalar: 1.215
+      scalar: 0.66
+      minScalar: 2.43
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -594,8 +594,8 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.895
-      minScalar: 1.5
+      scalar: 1.79
+      minScalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1069,7 +1069,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 12
+      scalar: 25
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4014,9 +4014,9 @@ ParticleSystem:
       properties: 0
       emitProbability: 1
   LightsModule:
-    enabled: 0
-    ratio: 0
-    light: {fileID: 0}
+    enabled: 1
+    ratio: 1
+    light: {fileID: 3227991611577292787}
     randomDistribution: 1
     color: 1
     range: 1
@@ -4974,6 +4974,7 @@ Transform:
   m_Children:
   - {fileID: 2399129412446988762}
   - {fileID: 8784414796155144741}
+  - {fileID: 2258386574564651885}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5004,8 +5005,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0.36, y: 0, z: 0}
+  m_Radius: 0.81
+  m_Center: {x: 0.02, y: 0.01, z: 1.05}
 --- !u!114 &5042950679077643293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5022,9 +5023,102 @@ MonoBehaviour:
   speed: 20
   lifetime: 10
   damage: 10
-  destroyOnHit: 0
-  fireEffect: {fileID: 5985519522266575152, guid: 18e61da89b1ade940b2424d028f7b166, type: 3}
+  destroyOnHit: 1
+  fireEffect: {fileID: 6359638506403697469, guid: 5007c7c9fc71aad4b876d20ef0e2b588, type: 3}
   iceEffect: {fileID: 0}
   windEffect: {fileID: 0}
   earthEffect: {fileID: 0}
   hitFireWall: 0
+--- !u!1 &9192615842892988446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2258386574564651885}
+  - component: {fileID: 3227991611577292787}
+  m_Layer: 0
+  m_Name: Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2258386574564651885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9192615842892988446}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.57, y: -0.32, z: -20.72}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 731538013260861585}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &3227991611577292787
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9192615842892988446}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.7460917, b: 0, a: 1}
+  m_Intensity: 9.52
+  m_Range: 2.81
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 8.49e-43, y: -7.397499, z: 8.49e-43, w: 1.0967306e-15}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
