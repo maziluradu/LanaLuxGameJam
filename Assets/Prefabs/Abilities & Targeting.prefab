@@ -98,7 +98,7 @@ MonoBehaviour:
     quickCast: 1
     onCooldown: 0
     cooldown: 1
-    projectile: {fileID: 4893451587644981610, guid: 0449d050b1838fe42bcdde0d907baa73, type: 3}
+    projectile: {fileID: -1759857089696177079, guid: 0449d050b1838fe42bcdde0d907baa73, type: 3}
     parent: {fileID: 0}
   earthBallSpell:
     button: 102
