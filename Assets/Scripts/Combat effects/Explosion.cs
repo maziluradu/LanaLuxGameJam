@@ -9,15 +9,14 @@ public class Explosion : MonoBehaviour
     public float duration = 1f;
     public float damage = 100f;
     public float lifetime = 10f;
+    public bool createExplosionOnDeath = false;
 
     private readonly List<CombatUnit> hits = new List<CombatUnit>();
-    private new SphereCollider collider;
     private Vector3 originalSize = Vector3.one;
     private float timer = 0;
 
     private void Start()
     {
-        collider = GetComponent<SphereCollider>();
         originalSize = transform.localScale;
         Destroy(gameObject, lifetime);
     }
@@ -41,6 +40,13 @@ public class Explosion : MonoBehaviour
 
             // apply damage
             unit.Damage(damage);
+
+            // if unit was kill, create another explosion
+            if (createExplosionOnDeath && unit.IsDead)
+            {
+                var instance = Instantiate(this, unit.transform.position, unit.transform.rotation, gameObject.transform.parent);
+                instance.transform.localScale = originalSize;
+            }
         }
     }
 }

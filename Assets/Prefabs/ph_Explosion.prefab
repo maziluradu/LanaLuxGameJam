@@ -129,3 +129,4 @@ MonoBehaviour:
   duration: 0.2
   damage: 100
   lifetime: 0.2
+  createExplosionOnDeath: 1
