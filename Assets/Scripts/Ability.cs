@@ -28,4 +28,9 @@ public abstract class Ability
         Timer += deltaTime;
         onCooldown = Timer < cooldown;
     }
+    protected virtual void PutOnCooldown()
+    {
+        Timer = 0;
+        onCooldown = true;
+    }
 }

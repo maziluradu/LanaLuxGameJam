@@ -18,9 +18,7 @@ public class ProjectileAbility : Ability
 
             targeting.StopTargeting();
 
-            // put on cooldown
-            Timer = 0;
-            onCooldown = true;
+            PutOnCooldown();
         }
         else
         {

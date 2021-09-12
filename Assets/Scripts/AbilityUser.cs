@@ -7,31 +7,56 @@ public class AbilityUser : MonoBehaviour
     public AbilityTargeting targeting;
 
     [Header("Abilities")]
-    public ProjectileAbility ability1;
-    public HoldProjectileAbility ability2;
-    public ProjectileAbility ability3;
-    public ProjectileAbility ability4;
+    public WallSpell wallSpell = new WallSpell();
+    public FireBallSpell fireBallSpell = new FireBallSpell();
+    public IceBallSpell iceBallSpell = new IceBallSpell();
+    public WindBallSpell windBallSpell = new WindBallSpell();
+    public EarthBallSpell earthBallSpell = new EarthBallSpell();
+
+    [SerializeField] private ElementalType _lastElementalType;
+
+    public ElementalType LastElementalType
+    {
+        get => _lastElementalType;
+        protected set => _lastElementalType = value;
+    }
 
     void Update()
     {
-        HandleAbility(ability1);
-        HandleAbility(ability2);
-        HandleAbility(ability3);
-        HandleAbility(ability4);
+        HandleWall(wallSpell);
+        HandleElementalBall(fireBallSpell);
+        HandleElementalBall(iceBallSpell);
+        HandleElementalBall(windBallSpell);
+        HandleElementalBall(earthBallSpell);
+    }
+    private void OnGUI()
+    {
+        GUILayout.Button(LastElementalType.ToString());
     }
 
-    private void HandleAbility(Ability ability)
+    private void HandleWall(WallSpell ability)
     {
         ability.UpdateTimers(Time.deltaTime);
 
         if (!ability.onCooldown)
         {
             if (Input.GetKeyDown(ability.button))
+            {
                 ability.Press(this, targeting);
-            else if (Input.GetKey(ability.button))
-                ability.Hold(this, targeting);
-            else if (Input.GetKeyUp(ability.button))
-                ability.Release(this, targeting);
+            }
+        }
+    }
+    private void HandleElementalBall(ElementalBallSpell ability)
+    {
+        ability.UpdateTimers(Time.deltaTime);
+
+        if (!ability.onCooldown)
+        {
+            if (Input.GetKeyDown(ability.button))
+            {
+                ability.Press(this, targeting);
+                LastElementalType = ability.ElementalType;
+            }
         }
     }
 }
