@@ -74,7 +74,7 @@ MonoBehaviour:
     quickCast: 1
     onCooldown: 0
     cooldown: 1
-    fireWall: {fileID: 795355291091920422, guid: 602892bea8c62b34d9721fdfb1960294, type: 3}
+    fireWall: {fileID: 1400924936262225806, guid: 8ade3d413c7c7bd4a8126f3d0addd9bb, type: 3}
     iceWall: {fileID: 3458888749983569437, guid: 3364c1da97f3cfd4dbeaa372adb155f1, type: 3}
     windWall: {fileID: 7054669441277371849, guid: 43c7e1fcd2534bf4796c1ac988486fae, type: 3}
     instancesParent: {fileID: 0}
@@ -97,6 +97,6 @@ MonoBehaviour:
     quickCast: 1
     onCooldown: 0
     cooldown: 1
-    projectile: {fileID: 4275608322619612604, guid: 0f49eedbb5b087445889f1d2a79f70bc, type: 3}
+    projectile: {fileID: 5042950679077643293, guid: 0f49eedbb5b087445889f1d2a79f70bc, type: 3}
     parent: {fileID: 0}
   _lastElementalType: 1
