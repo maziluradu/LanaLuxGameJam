@@ -5,7 +5,8 @@ using UnityEngine;
 public class ElementalWall : MonoBehaviour
 {
     public float lifetime = 10f;
-    [SerializeField] protected ElementalType _elementalType;
+
+    protected ElementalType _elementalType;
 
     public ElementalType ElementalType
     {
@@ -13,7 +14,7 @@ public class ElementalWall : MonoBehaviour
         protected set => _elementalType = value;
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         Destroy(gameObject, lifetime);
     }

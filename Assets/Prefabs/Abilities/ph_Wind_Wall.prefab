@@ -90,8 +90,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9139755157438749775}
-  - component: {fileID: -8299941952429164601}
   - component: {fileID: 6900528724913737531}
+  - component: {fileID: 7054669441277371849}
   m_Layer: 0
   m_Name: ph_Wind_Wall
   m_TagString: Untagged
@@ -114,20 +114,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8299941952429164601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7278884714598032330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edfc8917541376841b77e00a7e92276e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifetime: 10
-  _elementalType: 3
 --- !u!65 &6900528724913737531
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -141,3 +127,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 3, z: 0.5}
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!114 &7054669441277371849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7278884714598032330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 807a0e1aa992c604ea4f8045ea000a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 10

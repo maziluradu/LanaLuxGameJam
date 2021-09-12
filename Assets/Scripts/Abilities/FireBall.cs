@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FireBall : Projectile
+public class FireBall : ElementalBall
 {
     public GameObject fireEffect;
     public GameObject iceEffect;
@@ -8,37 +8,29 @@ public class FireBall : Projectile
     public GameObject earthEffect;
 
     [Header("Read only")]
-    public bool hitFireWall;
+    public bool hitFireWall = false;
 
-    public FireBall()
+    public FireBall() : base()
     {
-        OnWallHit += HandleWallHit;
         OnPostDmg += HandlePostDmg;
     }
     ~FireBall()
     {
-        OnWallHit -= HandleWallHit;
         OnPostDmg -= HandlePostDmg;
     }
 
-    private void HandleWallHit(ElementalWall wall)
+    protected override void HandleWindWallHit(WindWall wall)
+    { }
+    protected override void HandleEarthWallHit(EarthWall wall)
+    { }
+    protected override void HandleFireWallHit(FireWall wall)
     {
-        switch (wall.ElementalType)
-        {
-            case ElementalType.Fire:
-                hitFireWall = true;
-                break;
-            case ElementalType.Ice:
-                break;
-            case ElementalType.Wind:
-                break;
-            case ElementalType.Earth:
-                break;
-            default:
-                break;
-        }
+        hitFireWall = true;
     }
-    private void HandlePostDmg(CombatUnit unit)
+    protected override void HandleIceWallHit(IceWall wall)
+    { }
+
+    protected void HandlePostDmg(CombatUnit unit)
     {
         if (hitFireWall)
             Instantiate(fireEffect, transform.position, Quaternion.identity, transform.parent);
