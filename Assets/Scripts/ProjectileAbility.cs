@@ -38,7 +38,6 @@ public class ProjectileAbility : Ability
     protected virtual void Trigger(AbilityUser user, AbilityTargeting targeting)
     {
         var rotation = Quaternion.LookRotation(targeting.targetDirection);
-        var instance = UnityEngine.Object.Instantiate(projectile, user.abilitiesSource.position, rotation, parent);
-        instance.direction = targeting.targetDirection;
+        UnityEngine.Object.Instantiate(projectile, user.abilitiesSource.position, rotation, parent);
     }
 }
