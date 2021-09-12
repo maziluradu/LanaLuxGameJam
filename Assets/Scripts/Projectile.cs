@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public Vector3 direction = Vector3.zero;
     public float speed = 1f;
     public float lifetime = 10f;
     public float damage = 10f;
@@ -16,9 +15,9 @@ public class Projectile : MonoBehaviour
 
     private float actualLifetime = 0f;
 
-    private void Update()
+    protected virtual void Update()
     {
-        transform.position += Time.deltaTime * speed * direction.normalized;
+        transform.position += Time.deltaTime * speed * transform.forward.normalized;
 
         // check lifetime
         actualLifetime += Time.deltaTime;
@@ -26,7 +25,7 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         // handle wall hit
         var wall = other.GetComponent<ElementalWall>();

@@ -7,7 +7,6 @@ public class WallSpell : Ability
     public ElementalWall fireWall;
     public ElementalWall iceWall;
     public ElementalWall windWall;
-    public ElementalWall earthWall;
     public Transform instancesParent;
 
     public override void Press(AbilityUser user, AbilityTargeting targeting)
@@ -23,9 +22,6 @@ public class WallSpell : Ability
                 break;
             case ElementalType.Wind:
                 wall = windWall;
-                break;
-            case ElementalType.Earth:
-                wall = earthWall;
                 break;
             // to do: wall with no element
             default:
