@@ -10,10 +10,9 @@ public class Projectile : MonoBehaviour
 
     public bool destroyOnHit = false;
 
-    [Header("Explosion effect")]
-    public bool useExplostion = false;
-    public Explosion explosion;
-    public Transform explosionParent;
+    public event Action<CombatUnit> OnPreDmg;
+    public event Action<CombatUnit> OnPostDmg;
+    public event Action<ElementalWall> OnWallHit;
 
     private float actualLifetime = 0f;
 
@@ -29,14 +28,25 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // handle wall hit
+        var wall = other.GetComponent<ElementalWall>();
+        if (wall != null)
+            OnWallHit?.Invoke(wall);
+
+        // handle combat unit hit
         var unit = other.GetComponent<CombatUnit>();
         if (unit != null && unit.IsAlive)
         {
+            // event before damage
+            OnPreDmg?.Invoke(unit);
+
+            // apply damage
             unit.Damage(damage);
 
-            if (useExplostion && explosion != null)
-                Instantiate(explosion, transform.position, transform.rotation, explosionParent);
+            // event after damage
+            OnPostDmg?.Invoke(unit);
 
+            // destroy on first unit hit
             if (destroyOnHit)
                 Destroy(gameObject);
         }
