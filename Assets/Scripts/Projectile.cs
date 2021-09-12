@@ -8,6 +8,13 @@ public class Projectile : MonoBehaviour
     public float lifetime = 10f;
     public float damage = 10f;
 
+    public bool destroyOnHit = false;
+
+    [Header("Explosion effect")]
+    public bool useExplostion = false;
+    public Explosion explosion;
+    public Transform explosionParent;
+
     private float actualLifetime = 0f;
 
     private void Update()
@@ -26,6 +33,12 @@ public class Projectile : MonoBehaviour
         if (unit != null)
         {
             unit.Damage(damage);
+
+            if (useExplostion && explosion != null)
+                Instantiate(explosion, transform.position, transform.rotation, explosionParent);
+
+            if (destroyOnHit)
+                Destroy(gameObject);
         }
     }
 }
