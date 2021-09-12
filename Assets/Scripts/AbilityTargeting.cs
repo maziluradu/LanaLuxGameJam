@@ -3,9 +3,6 @@ using UnityEngine;
 public class AbilityTargeting : MonoBehaviour
 {
     public new Camera camera;
-
-    public Transform pointTarget;
-    public Transform arrowTarget;
     public LayerMask floorLayerMask;
 
     [Header("Read only")]
@@ -15,22 +12,19 @@ public class AbilityTargeting : MonoBehaviour
     public Vector3 targetDirection = Vector3.zero;
 
     private Transform origin = null;
-    private Transform currentTarget = null;
 
     private void Update()
     {
         CalculateTargeting();
     }
 
-    public void StartPointTargeting(bool quickCast = false)
+    public void StartPointTargeting(Transform origin, bool quickCast = false)
     {
         if (isTargeting)
             StopTargeting();
 
         isTargeting = true;
         usingArrowTarget = false;
-        if (!quickCast)
-            currentTarget = Instantiate(pointTarget, gameObject.transform);
 
         CalculateTargeting();
     }
@@ -43,16 +37,11 @@ public class AbilityTargeting : MonoBehaviour
 
         isTargeting = true;
         usingArrowTarget = true;
-        if (!quickCast)
-            currentTarget = Instantiate(arrowTarget, gameObject.transform);
 
         CalculateTargeting();
     }
     public void StopTargeting()
     {
-        if (isTargeting && currentTarget)
-            Destroy(currentTarget.gameObject);
-
         isTargeting = false;
     }
 
@@ -66,20 +55,6 @@ public class AbilityTargeting : MonoBehaviour
         {
             targetPosition = hit.point;
             targetDirection = hit.point - origin.position;
-
-            if (currentTarget != null)
-            {
-                if (usingArrowTarget)
-                {
-                    var direction = hit.point - origin.position;
-                    currentTarget.position = origin.position;
-                    currentTarget.eulerAngles = new Vector3(0, 180 + Mathf.Rad2Deg * Mathf.Atan2(direction.x, direction.z), 0);
-                }
-                else
-                {
-                    currentTarget.position = hit.point;
-                }
-            }
         }
     }
 }

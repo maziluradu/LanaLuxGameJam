@@ -11,7 +11,6 @@ public class AbilityUser : MonoBehaviour
     public FireBallSpell fireBallSpell = new FireBallSpell();
     public IceBallSpell iceBallSpell = new IceBallSpell();
     public WindBallSpell windBallSpell = new WindBallSpell();
-    public EarthBallSpell earthBallSpell = new EarthBallSpell();
 
     [SerializeField] private ElementalType _lastElementalType;
 
@@ -27,7 +26,6 @@ public class AbilityUser : MonoBehaviour
         HandleElementalBall(fireBallSpell);
         HandleElementalBall(iceBallSpell);
         HandleElementalBall(windBallSpell);
-        HandleElementalBall(earthBallSpell);
     }
     private void OnGUI()
     {

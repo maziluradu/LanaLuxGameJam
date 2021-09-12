@@ -583,19 +583,19 @@ PrefabInstance:
     - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
       propertyPath: wallSpell.iceWall
       value: 
-      objectReference: {fileID: 3458888749983569437, guid: 3364c1da97f3cfd4dbeaa372adb155f1, type: 3}
+      objectReference: {fileID: -3747566973636021402, guid: ab98f9800e720c04586d204ca6488751, type: 3}
     - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
       propertyPath: _lastElementalType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
       propertyPath: wallSpell.fireWall
       value: 
-      objectReference: {fileID: 795355291091920422, guid: 602892bea8c62b34d9721fdfb1960294, type: 3}
+      objectReference: {fileID: 1400924936262225806, guid: 8ade3d413c7c7bd4a8126f3d0addd9bb, type: 3}
     - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
       propertyPath: wallSpell.windWall
       value: 
-      objectReference: {fileID: 7054669441277371849, guid: 43c7e1fcd2534bf4796c1ac988486fae, type: 3}
+      objectReference: {fileID: 5944358762433553651, guid: 0a6f0404a4560324f8db627f1ac8e985, type: 3}
     - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
       propertyPath: ability1.projectile
       value: 
@@ -615,7 +615,7 @@ PrefabInstance:
     - target: {fileID: 6164089409224766671, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
       propertyPath: windBallSpell.projectile
       value: 
-      objectReference: {fileID: 5042950679077643293, guid: 0f49eedbb5b087445889f1d2a79f70bc, type: 3}
+      objectReference: {fileID: 4275608322619612604, guid: 0f49eedbb5b087445889f1d2a79f70bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb1bc680fbbaa7946bb61a9e1147e9bb, type: 3}
 --- !u!1 &181989607 stripped
@@ -1027,7 +1027,7 @@ MonoBehaviour:
   AIPrefabs:
   - {fileID: 5524554379008799957, guid: 632b9a825d200d54c8ad52fb0f8c3172, type: 3}
   SpawnPoint: {fileID: 705018566}
-  interval: 10
+  interval: 5
   enemyScattering: 2
   enemiesCount: 10
   enemyMultiplierForEachWave: 1.2
@@ -2814,6 +2814,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 870524571}
+  - component: {fileID: 870524572}
   m_Layer: 0
   m_Name: Castle
   m_TagString: Untagged
@@ -2836,6 +2837,19 @@ Transform:
   m_Father: {fileID: 2040408158}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &870524572
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870524570}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 25.464996, y: 14.889734, z: 5.46183}
+  m_Center: {x: -0.48079872, y: 6.944867, z: 19.53165}
 --- !u!1 &906636094
 GameObject:
   m_ObjectHideFlags: 0
@@ -3151,11 +3165,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: -63.9
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 13
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

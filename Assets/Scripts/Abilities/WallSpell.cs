@@ -7,7 +7,6 @@ public class WallSpell : Ability
     public ElementalWall fireWall;
     public ElementalWall iceWall;
     public ElementalWall windWall;
-    public ElementalWall earthWall;
     public Transform instancesParent;
 
     public override void Press(AbilityUser user, AbilityTargeting targeting)
@@ -24,19 +23,16 @@ public class WallSpell : Ability
             case ElementalType.Wind:
                 wall = windWall;
                 break;
-            case ElementalType.Earth:
-                wall = earthWall;
-                break;
             // to do: wall with no element
             default:
                 return;
         }
 
         // get target
-        targeting.StartPointTargeting(quickCast = true);
+        targeting.StartPointTargeting(user.character.transform, quickCast = true);
 
         // instantiate wall
-        UnityEngine.Object.Instantiate(wall, targeting.targetPosition, Quaternion.identity, instancesParent);
+        UnityEngine.Object.Instantiate(wall, targeting.targetPosition, Quaternion.LookRotation(targeting.targetDirection), instancesParent);
 
         PutOnCooldown();
     }

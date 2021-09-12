@@ -74,37 +74,29 @@ MonoBehaviour:
     quickCast: 1
     onCooldown: 0
     cooldown: 1
-    fireWall: {fileID: -2944072437426455613, guid: 602892bea8c62b34d9721fdfb1960294, type: 3}
-    iceWall: {fileID: -6985725510838205693, guid: 3364c1da97f3cfd4dbeaa372adb155f1, type: 3}
-    windWall: {fileID: -8299941952429164601, guid: 43c7e1fcd2534bf4796c1ac988486fae, type: 3}
-    earthWall: {fileID: 9021302148003857058, guid: dc9b5a68bec07214c8637712cb0c8bf5, type: 3}
+    fireWall: {fileID: 1400924936262225806, guid: 8ade3d413c7c7bd4a8126f3d0addd9bb, type: 3}
+    iceWall: {fileID: -3747566973636021402, guid: ab98f9800e720c04586d204ca6488751, type: 3}
+    windWall: {fileID: 5944358762433553651, guid: 0a6f0404a4560324f8db627f1ac8e985, type: 3}
     instancesParent: {fileID: 0}
   fireBallSpell:
     button: 113
     quickCast: 1
     onCooldown: 0
     cooldown: 1
-    projectile: {fileID: 4893451587644981610, guid: e028648dddd89484898c836dc5927137, type: 3}
+    projectile: {fileID: 5042950679077643293, guid: f20430eb725a6604b8f3da7d1dc8fb3f, type: 3}
     parent: {fileID: 0}
   iceBallSpell:
     button: 101
     quickCast: 1
     onCooldown: 0
     cooldown: 1
-    projectile: {fileID: 4893451587644981610, guid: 61b9ddbcf8a2ce24aa062a7bc3b006b8, type: 3}
+    projectile: {fileID: 7147509412839276175, guid: 99a12a7b5c0dba4429158916424984fe, type: 3}
     parent: {fileID: 0}
   windBallSpell:
     button: 114
     quickCast: 1
     onCooldown: 0
     cooldown: 1
-    projectile: {fileID: 4893451587644981610, guid: 0449d050b1838fe42bcdde0d907baa73, type: 3}
+    projectile: {fileID: 4275608322619612604, guid: 0f49eedbb5b087445889f1d2a79f70bc, type: 3}
     parent: {fileID: 0}
-  earthBallSpell:
-    button: 102
-    quickCast: 1
-    onCooldown: 0
-    cooldown: 1
-    projectile: {fileID: 4893451587644981610, guid: eb40e4d557a645c4facf5f71522f1d0a, type: 3}
-    parent: {fileID: 0}
-  _lastElementalType: 0
+  _lastElementalType: 1
