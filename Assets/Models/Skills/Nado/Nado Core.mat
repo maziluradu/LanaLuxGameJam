@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Nado Material
+  m_Name: Nado Core
   m_Shader: {fileID: -6465566751694194690, guid: f6991a20cd72b584286422b6b887845e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -107,7 +107,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_8e655cdfaaf04dffae90953cd3ae6fe3: {r: 0.14313726, g: 0.14313726, b: 0.14313726, a: 1}
+    - Color_8e655cdfaaf04dffae90953cd3ae6fe3: {r: 0.8867924, g: 0.3039634, b: 0.012548926, a: 1}
     - Vector2_0f0d2eaad5c74c329fa2d2629370f54d: {r: 0, g: 0, b: 0, a: 0}
     - Vector2_b0d38fefa47746e692adbe38af8eb885: {r: 0.2, g: 0.2, b: 0, a: 0}
     - Vector3_adefa3821ad54c44b146b939cab4a337: {r: 0, g: 0.5, b: 0, a: 0}
