@@ -14,7 +14,7 @@ public class EnemyManager : AIManager
     public UnityEvent<string> onWaveStarted = new UnityEvent<string>();
 
     private float timer = 0f;
-    private bool waveFrozen = false;
+    private bool waveFrozen = true;
     private int currentWave = 0;
 
     public void FreezeWave(bool toggle)
