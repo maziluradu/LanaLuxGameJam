@@ -76,7 +76,7 @@ MonoBehaviour:
     cooldown: 1
     fireWall: {fileID: 1400924936262225806, guid: 8ade3d413c7c7bd4a8126f3d0addd9bb, type: 3}
     iceWall: {fileID: -3747566973636021402, guid: ab98f9800e720c04586d204ca6488751, type: 3}
-    windWall: {fileID: 7054669441277371849, guid: 43c7e1fcd2534bf4796c1ac988486fae, type: 3}
+    windWall: {fileID: 5944358762433553651, guid: 0a6f0404a4560324f8db627f1ac8e985, type: 3}
     instancesParent: {fileID: 0}
   fireBallSpell:
     button: 113
