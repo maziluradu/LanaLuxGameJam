@@ -5023,7 +5023,7 @@ MonoBehaviour:
   speed: 20
   lifetime: 10
   damage: 100
-  destroyOnHit: 0
+  destroyOnHit: 1
   useExplostion: 0
   explosion: {fileID: 0}
   explosionParent: {fileID: 0}
