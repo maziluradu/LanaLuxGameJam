@@ -8,6 +8,8 @@ public class EnemyManager : AIManager
     public float interval = 10f;
     public float enemyScattering = 2.0f;
     public int enemiesCount = 10;
+    [Range(0.0f, 1.0f)]
+    public float burstRatio = 0.3f;
     public float enemyMultiplierForEachWave = 1.2f;
 
     public UnityEvent<int> onWaveEnded = new UnityEvent<int>();
@@ -15,7 +17,13 @@ public class EnemyManager : AIManager
 
     private float timer = 0f;
     private bool waveFrozen = true;
-    private int currentWave = 0;
+    private int currentWave = 1;
+    private int enemiesSpawnedThisWave = 0;
+
+    public void ResetEnemiesSpawned()
+    {
+        enemiesSpawnedThisWave = 0;
+    }
 
     public void FreezeWave(bool toggle)
     {
@@ -27,14 +35,27 @@ public class EnemyManager : AIManager
 
     public void Update()
     {
-        if (!waveFrozen)
+        var enemiesToSpawn = GetEnemiesToSpawn();
+
+        if (!waveFrozen || this.enemiesSpawnedThisWave < enemiesToSpawn)
         {
             timer += Time.deltaTime;
 
             if (currentWave == 0 || interval > 0 && timer >= interval)
             {
-                timer = 0;
-                this.SpawnEnemies(Convert.ToInt32(enemiesCount * Mathf.Pow(enemyMultiplierForEachWave, currentWave++)));
+                if (this.enemiesSpawnedThisWave < enemiesToSpawn)
+                {
+                    timer = Mathf.Max(0, Mathf.Max(1.0f - burstRatio*2, 0) * interval);
+                    this.SpawnEnemies(Convert.ToInt32(enemiesToSpawn * burstRatio));
+
+                    if (this.enemiesSpawnedThisWave >= enemiesToSpawn)
+                    {
+                        currentWave++;
+                    }
+                } else
+                {
+                    timer = 0;
+                }
             }
         }
     }
@@ -42,9 +63,13 @@ public class EnemyManager : AIManager
     public void SpawnEnemies(int numberOfEnemies)
     {
         FreezeWave(true);
-        this.onWaveStarted.Invoke($"Wave {currentWave} has begun.");
+        if (this.enemiesSpawnedThisWave == 0)
+        {
+            this.onWaveStarted.Invoke($"Wave {currentWave} has begun.");
+        }
         for (int i = 0; i < numberOfEnemies; i++)
         {
+            this.enemiesSpawnedThisWave++;
             SpawnRandomEnemy();
         }
     }
@@ -73,9 +98,15 @@ public class EnemyManager : AIManager
     {
         base.HandleOnDeath(eventData);
 
-        if (AIs.Count == 0)
+        if (AIs.Count == 0 && this.enemiesSpawnedThisWave >= GetEnemiesToSpawn())
         {
             onWaveEnded.Invoke(currentWave);
+            enemiesSpawnedThisWave = 0;
         }
+    }
+
+    private int GetEnemiesToSpawn()
+    {
+        return Convert.ToInt32(enemiesCount * Mathf.Pow(enemyMultiplierForEachWave, currentWave + 1));
     }
 }
