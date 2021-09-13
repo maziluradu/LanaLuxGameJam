@@ -36,7 +36,7 @@ public class Projectile : MonoBehaviour
 
         // handle combat unit hit
         var unit = other.GetComponent<CombatUnit>();
-        if (unit != null && unit.IsAlive)
+        if (unit != null && unit.IsAlive && !unit.isPlayer)
         {
             // event before damage
             OnPreDmg?.Invoke(unit);

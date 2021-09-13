@@ -6,6 +6,7 @@ public class CombatUnit : MonoBehaviour
 {
     [Min(0)]
     [InspectorName("Max HP")]
+    public bool isPlayer = false;
     [SerializeField] protected float _maxHp = 100f;
 
     [Header("Read only")]
