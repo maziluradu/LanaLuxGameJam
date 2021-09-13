@@ -14,8 +14,9 @@ public class IceWall : ElementalWall
     
     public void Melt()
     {
-        animator.SetTrigger(meltTriggerId);
-        Instantiate(puddle, transform.position, transform.rotation, transform.parent);
+        if (animator)
+            animator.SetTrigger(meltTriggerId);
+        Instantiate(puddle, transform.position, Quaternion.identity);
 
         // disable colliders
         var colliders = GetComponents<Collider>();
