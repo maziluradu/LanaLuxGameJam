@@ -996,6 +996,7 @@ MonoBehaviour:
   AIs: []
   AIPrefabs:
   - {fileID: 5524554379008799957, guid: 632b9a825d200d54c8ad52fb0f8c3172, type: 3}
+  - {fileID: 1040008309659732671, guid: b20f16ebd9a6419408e0fe9ef4629d35, type: 3}
   SpawnPoint: {fileID: 705018566}
   interval: 5
   enemyScattering: 2
@@ -7394,6 +7395,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1160985076934892083, guid: aa6fdfedb357eb24b80903da09ad20c9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.18
+      objectReference: {fileID: 0}
     - target: {fileID: 1160985076934892083, guid: aa6fdfedb357eb24b80903da09ad20c9, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0

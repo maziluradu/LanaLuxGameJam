@@ -4876,7 +4876,7 @@ GameObject:
   - component: {fileID: 5249025335846715245}
   - component: {fileID: 4275608322619612604}
   m_Layer: 0
-  m_Name: ph_Wind_Spell_01
+  m_Name: Wind_Spell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4940,7 +4940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   lifetime: 10
-  damage: 100
+  damage: 25
   destroyOnHit: 0
   fireEffect: {fileID: 7896253255654483829, guid: e7601be8f5c32304bac79fd439fd729c, type: 3}
   iceEffect: {fileID: 0}
