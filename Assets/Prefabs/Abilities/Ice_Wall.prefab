@@ -9859,6 +9859,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 10
+  puddle: {fileID: 5535299608513392742, guid: d319835440864ba4db3b723b48aca698, type: 3}
+  animator: {fileID: 4128155914612101792}
+  meltTriggerId: Melt
 --- !u!208 &-8693571100143075883
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -9984,7 +9987,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7269332713732854368}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -0.2, z: 0}
+  m_LocalPosition: {x: 0.01, y: -0.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1376657177597958212}

@@ -30,7 +30,10 @@ public class FireBall : ElementalBall
         hitFireWall = true;
     }
     protected override void HandleIceWallHit(IceWall wall)
-    { }
+    {
+        wall.Melt();
+        Destroy(gameObject);
+    }
 
     protected void HandlePreDmg(CombatUnit unit)
     {
