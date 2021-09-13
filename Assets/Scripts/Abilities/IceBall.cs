@@ -1,6 +1,7 @@
 public class IceBall : ElementalBall
 {
     public FireIceEffect fireCombo;
+    public IceIceEffect iceCombo;
 
     protected override void HandleWindWallHit(WindWall wall)
     {
@@ -14,5 +15,8 @@ public class IceBall : ElementalBall
         Destroy(gameObject);
     }
     protected override void HandleIceWallHit(IceWall wall)
-    { }
+    {
+        Instantiate(iceCombo, transform.position, transform.rotation, transform.parent);
+        Destroy(gameObject);
+    }
 }
