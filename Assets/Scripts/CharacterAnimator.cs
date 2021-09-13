@@ -4,6 +4,7 @@ using UnityEngine;
 public class CharacterAnimator : MonoBehaviour
 {
     // inspector variables
+    [SerializeField] private string attackId = "Attack";
     [SerializeField] private string damageId = "Damage";
     [SerializeField] private string dieId = "Die";
     [SerializeField] private string idleId = "Idle";
@@ -28,6 +29,12 @@ public class CharacterAnimator : MonoBehaviour
         animator.SetBool(walkId, walk);
     }
 
+    public void Attack()
+    {
+        animator.SetTrigger(attackId);
+
+        walk = false;
+    }
     public void Damage()
     {
         animator.SetTrigger(damageId);

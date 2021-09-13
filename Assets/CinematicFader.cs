@@ -3,13 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CinematicFader : MonoBehaviour
 {
+    public int currentWave = 1;
     public Text accompanyingText;
     public List<CinematicText> cinematicTexts;
     public AudioSource audioSource;
+    public bool shouldSwitchToMainMenuAfter = false;
 
     public UnityEvent onCinematicFinished = new UnityEvent();
 
@@ -17,10 +20,18 @@ public class CinematicFader : MonoBehaviour
 
     public void StartCinematic()
     {
-        gameObject.SetActive(true);
-        this.image = GetComponent<Image>();
-        StartCoroutine(FadeImage(false));
-        StartCoroutine(FadeText(0, false));
+        if (!(this.image && this.image.color.a != 0.0f && this.image.color.a != 1.0f))
+        {
+            gameObject.SetActive(true);
+            this.image = GetComponent<Image>();
+            StartCoroutine(FadeImage(false));
+            StartCoroutine(FadeText(0, false));
+        }
+    }
+
+    public void SetCurrentWave(int waveNumber)
+    {
+        currentWave = waveNumber;
     }
 
     private IEnumerator FadeImage(bool fadeAway)
@@ -60,7 +71,7 @@ public class CinematicFader : MonoBehaviour
                     accompanyingText.color = new Color(1, 1, 1, i);
                 }
 
-                if (this.cinematicTexts.Count <= cinematicIndex + 1 && this.audioSource.volume >= i / 3)
+                if (audioSource && this.cinematicTexts.Count <= cinematicIndex + 1 && this.audioSource.volume >= i / 3)
                 {
                     this.audioSource.volume = i / 3;
                 }
@@ -74,12 +85,23 @@ public class CinematicFader : MonoBehaviour
             } else
             {
                 onCinematicFinished.Invoke();
+                if (shouldSwitchToMainMenuAfter)
+                {
+                    GameObject.FindGameObjectWithTag("PlayFabManager").GetComponent<PlayFabManager>().UpdateLeaderboard(currentWave);
+                    SceneManager.LoadScene("SampleScene 1");
+                }
             }
         }
         // fade from transparent to opaque
         else
         {
             this.accompanyingText.text = this.cinematicTexts[cinematicIndex].Text;
+
+            if (this.accompanyingText.text.Contains("{number}"))
+            {
+                this.accompanyingText.text = this.accompanyingText.text.Replace("{number}", currentWave.ToString());
+            }
+
             for (float i = 0; i <= 3; i += Time.deltaTime)
             {
                 if (i <= 1)

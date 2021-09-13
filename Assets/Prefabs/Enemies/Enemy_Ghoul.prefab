@@ -808,7 +808,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5524554379008799957}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.35
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -817,7 +817,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 1.19
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -847,8 +847,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0274dd2f3ef5af64ab743cbf0c061f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
-  hp: 100
+  _maxHp: 100
+  _hp: 100
 --- !u!114 &-5324673142960085557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -861,6 +861,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ffd730cc333aa4e85287e5de3073f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDistance: 2.5
+  destroyDelay: 5
+  damage: 5
   target: {fileID: 0}
   onAIDamaged:
     m_PersistentCalls:
@@ -880,6 +883,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ea424cdf62f824e9f624906ebcf27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackId: Attack
+  damageId: Damage
+  dieId: Die
   idleId: Idle
   walkId: Walk
 --- !u!1 &5616746067597827709
