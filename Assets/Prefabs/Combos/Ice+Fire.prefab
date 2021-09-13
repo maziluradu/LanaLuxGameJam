@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ec4f1b984e5d843b6052227119e299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapCenter: {x: 1.37, y: 3.49}
+  mapCenter: {x: 1.37, y: 3.6}
   lifetime: 10
   slow: 0.5
 --- !u!1 &5142325889267650508
