@@ -9826,6 +9826,7 @@ MonoBehaviour:
   colliderLifetime: 0.5
   lifetime: 1.4
   createExplosionOnDeath: 0
+  createExplosionOnMarked: 1
 --- !u!1 &6359638506597195258
 GameObject:
   m_ObjectHideFlags: 0

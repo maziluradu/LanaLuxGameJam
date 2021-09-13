@@ -3,19 +3,19 @@ using UnityEngine;
 public class FireBall : ElementalBall
 {
     public GameObject fireEffect;
-    public GameObject iceEffect;
-    public GameObject windEffect;
-    public GameObject earthEffect;
+    public FireMark markEffect;
 
     [Header("Read only")]
     public bool hitFireWall = false;
 
     public FireBall() : base()
     {
+        OnPreDmg += HandlePreDmg;
         OnPostDmg += HandlePostDmg;
     }
     ~FireBall()
     {
+        OnPreDmg -= HandlePreDmg;
         OnPostDmg -= HandlePostDmg;
     }
 
@@ -32,6 +32,16 @@ public class FireBall : ElementalBall
     protected override void HandleIceWallHit(IceWall wall)
     { }
 
+    protected void HandlePreDmg(CombatUnit unit)
+    {
+        var mark = unit.GetComponent<FireMark>();
+        if (mark == null)
+            markEffect.CopyToUnit(unit);
+        else
+        {
+            mark.Spread();
+        }
+    }
     protected void HandlePostDmg(CombatUnit unit)
     {
         if (hitFireWall)

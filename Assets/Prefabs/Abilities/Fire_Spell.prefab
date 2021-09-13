@@ -5025,9 +5025,7 @@ MonoBehaviour:
   destroyOnHit: 1
   impactPrefab: {fileID: 3537016559953842808, guid: 0ac6da83b4a5a3c4e8f8a05aede5e044, type: 3}
   fireEffect: {fileID: 6359638506403697469, guid: 5007c7c9fc71aad4b876d20ef0e2b588, type: 3}
-  iceEffect: {fileID: 0}
-  windEffect: {fileID: 0}
-  earthEffect: {fileID: 0}
+  markEffect: {fileID: 300838384728371878, guid: 76b55cda5934c9c4bae93f0d69f7d139, type: 3}
   hitFireWall: 0
 --- !u!1 &9192615842892988446
 GameObject:

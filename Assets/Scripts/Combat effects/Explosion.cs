@@ -11,6 +11,7 @@ public class Explosion : MonoBehaviour
     public float colliderLifetime = 10f;
     public float lifetime = 10f;
     public bool createExplosionOnDeath = false;
+    public bool createExplosionOnMarked = false;
     
     private readonly List<CombatUnit> hits = new List<CombatUnit>();
     private float originalRadius = 1.0f;
@@ -51,6 +52,15 @@ public class Explosion : MonoBehaviour
             {
                 var instance = Instantiate(this, unit.transform.position, unit.transform.rotation, gameObject.transform.parent);
                 instance.GetComponent<SphereCollider>().radius = originalRadius;
+            }
+
+            // create explosion on marked units
+            var mark = unit.GetComponent<FireMark>();
+            if (createExplosionOnMarked && mark != null)
+            {
+                var instance = Instantiate(this, unit.transform.position, unit.transform.rotation, gameObject.transform.parent);
+                instance.GetComponent<SphereCollider>().radius = originalRadius;
+                Destroy(mark);
             }
         }
     }
