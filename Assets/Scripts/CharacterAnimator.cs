@@ -32,6 +32,8 @@ public class CharacterAnimator : MonoBehaviour
     public void Attack()
     {
         animator.SetTrigger(attackId);
+
+        walk = false;
     }
     public void Damage()
     {
