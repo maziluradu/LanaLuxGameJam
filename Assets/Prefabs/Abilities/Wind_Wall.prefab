@@ -45,8 +45,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3, y: 3, z: 8}
+  m_Center: {x: 0, y: 0, z: 4}
 --- !u!199 &5920521991677165390
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -4900,9 +4900,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2459591293905453018}
   - component: {fileID: 6536476491852125413}
-  - component: {fileID: 973897471728379451}
   - component: {fileID: 7963860161305271927}
   - component: {fileID: 87586793238408710}
+  - component: {fileID: 382192109877789607}
   m_Layer: 0
   m_Name: Wind+Ice combo
   m_TagString: Untagged
@@ -9688,19 +9688,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!65 &973897471728379451
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5654063346151302158}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7963860161305271927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9714,7 +9701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 10
-  puddle: {fileID: 0}
+  puddle: {fileID: 5535299608513392742, guid: d319835440864ba4db3b723b48aca698, type: 3}
   animator: {fileID: 0}
   meltTriggerId: Melt
 --- !u!199 &87586793238408710
@@ -9783,6 +9770,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!65 &382192109877789607
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5654063346151302158}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 3, z: 8}
+  m_Center: {x: 0, y: 0, z: 4}
 --- !u!1 &6774000790362806726
 GameObject:
   m_ObjectHideFlags: 0
