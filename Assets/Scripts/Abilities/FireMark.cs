@@ -5,9 +5,6 @@ public class FireMark : MonoBehaviour
     public Vector3 spreadCenter = Vector3.zero;
     public float spreadRadius = 3f;
 
-#if UNITY_EDITOR
-    public bool showRange = false;
-
     [ColorUsage(true, hdr: true)]
     public Color fresnelColor = Color.red;
     public float fresnelPower = 1f;
@@ -18,13 +15,6 @@ public class FireMark : MonoBehaviour
 
     private readonly string fresnelPowerId = "Vector1_b87927ef809d4fe4a6fb4d2b7ecd442c";
     private readonly string fresnelColorId = "Color_fc1a8ee52f504c528a9e999e53a52ae6";
-
-    private void OnDrawGizmos()
-    {
-        if (showRange)
-            Gizmos.DrawSphere(transform.position + spreadCenter, spreadRadius);
-    }
-#endif
 
     private void OnEnable()
     {
@@ -49,7 +39,6 @@ public class FireMark : MonoBehaviour
         var copy = unit.gameObject.AddComponent<FireMark>();
         copy.spreadCenter = spreadCenter;
         copy.spreadRadius = spreadRadius;
-        copy.showRange = showRange;
     }
 
     public virtual void Spread()

@@ -68,7 +68,7 @@ public class AIController : MonoBehaviour
     public void DealDamageToTarget()
     {
         var combatUnitController = target.GetComponent<CombatUnit>();
-        if (combatUnit && combatUnit.Hp > 0)
+        if (combatUnitController && combatUnitController.Hp > 0)
         {
             combatUnitController.Damage(damage);
         }
