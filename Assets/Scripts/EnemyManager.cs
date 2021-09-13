@@ -32,7 +32,7 @@ public class EnemyManager : AIManager
     {
         var enemiesToSpawn = GetEnemiesToSpawn();
 
-        if (!waveFrozen || this.enemiesSpawnedThisWave < enemiesToSpawn)
+        if (!waveFrozen || this.enemiesSpawnedThisWave > 0 && this.enemiesSpawnedThisWave < enemiesToSpawn)
         {
             timer += Time.deltaTime;
 

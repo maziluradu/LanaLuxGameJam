@@ -9884,7 +9884,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   lifetime: 10
-  damage: 100
+  damage: 15
   destroyOnHit: 1
   impactPrefab: {fileID: 3537016559953842808, guid: bb579ba5832a7b648b8f997d0a316f95, type: 3}
   fireCombo: {fileID: 635172453486778123, guid: 49ed1fc0eba42764a81d7b10ce05951b, type: 3}

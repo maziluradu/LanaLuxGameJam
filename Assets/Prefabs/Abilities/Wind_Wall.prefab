@@ -9714,6 +9714,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 10
+  puddle: {fileID: 0}
+  animator: {fileID: 0}
+  meltTriggerId: Melt
 --- !u!199 &87586793238408710
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -19598,7 +19601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807a0e1aa992c604ea4f8045ea000a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 10
+  lifetime: 6
   defaultVisual: {fileID: 6774000790362806726}
   fireCombo: {fileID: 8808004505260342746}
   iceCombo: {fileID: 7963860161305271927}

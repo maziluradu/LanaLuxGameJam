@@ -9858,7 +9858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21fc4be3f7141c347b827088ae35f77a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 10
+  lifetime: 6
   puddle: {fileID: 5535299608513392742, guid: d319835440864ba4db3b723b48aca698, type: 3}
   animator: {fileID: 4128155914612101792}
   meltTriggerId: Melt
