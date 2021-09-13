@@ -9,6 +9,8 @@ public class Projectile : MonoBehaviour
 
     public bool destroyOnHit = false;
 
+    public GameObject impactPrefab;
+
     public event Action<CombatUnit> OnPreDmg;
     public event Action<CombatUnit> OnPostDmg;
     public event Action<ElementalWall> OnWallHit;
@@ -47,7 +49,17 @@ public class Projectile : MonoBehaviour
 
             // destroy on first unit hit
             if (destroyOnHit)
+            {
+                if (impactPrefab)
+                {
+                    Destroy(
+                        Instantiate(impactPrefab, transform.position, Quaternion.identity),
+                        1
+                    );
+                }
+
                 Destroy(gameObject);
+            }
         }
     }
 }

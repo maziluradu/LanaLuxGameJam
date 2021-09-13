@@ -4955,7 +4955,7 @@ GameObject:
   - component: {fileID: 5249025335846715245}
   - component: {fileID: 5042950679077643293}
   m_Layer: 0
-  m_Name: ph_Fire_Spell_01
+  m_Name: Fire_Spell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5019,11 +5019,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85514faab15b0de45b78b21e5a97cd8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0, z: 0}
   speed: 20
   lifetime: 10
   damage: 10
   destroyOnHit: 1
+  impactPrefab: {fileID: 3537016559953842808, guid: 0ac6da83b4a5a3c4e8f8a05aede5e044, type: 3}
   fireEffect: {fileID: 6359638506403697469, guid: 5007c7c9fc71aad4b876d20ef0e2b588, type: 3}
   iceEffect: {fileID: 0}
   windEffect: {fileID: 0}
