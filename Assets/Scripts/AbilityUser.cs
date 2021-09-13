@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 public class AbilityUser : MonoBehaviour
 {
+    public CharacterAnimator animator;
     public GameObject character;
     public Transform abilitiesSource;
     public AbilityTargeting targeting;
@@ -53,6 +54,10 @@ public class AbilityUser : MonoBehaviour
             {
                 ability.Press(this, targeting);
                 LastElementalType = ability.ElementalType;
+
+                // animation
+                animator.Attack();
+                character.transform.rotation = Quaternion.LookRotation(targeting.targetDirection);
             } else {
                 onSpellBlockedByCooldown.Invoke();
             }
