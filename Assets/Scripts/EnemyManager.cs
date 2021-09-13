@@ -68,7 +68,7 @@ public class EnemyManager : AIManager
     {
         if (this.AIPrefabs.Count > 0)
         {
-            var randomSpawnPoint = this.SpawnPoints[UnityEngine.Random.Range(0, SpawnPoints.Count - 1)];
+            var randomSpawnPoint = this.SpawnPoints[UnityEngine.Random.Range(0, SpawnPoints.Count)];
             this.SpawnAI(
                 this.AIPrefabs[UnityEngine.Random.Range(0, this.AIPrefabs.Count)],
                 randomSpawnPoint.transform.position + new Vector3(UnityEngine.Random.Range(0.0f, this.enemyScattering), 0, UnityEngine.Random.Range(0.0f, this.enemyScattering)),
