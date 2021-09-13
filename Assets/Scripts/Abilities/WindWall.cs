@@ -1,5 +1,8 @@
+using UnityEngine;
+
 public class WindWall : ElementalWall
 {
+    public GameObject defaultVisual;
     public FireWall fireCombo;
     public IceWall iceCombo;
     public float comboDelay = 0.5f;
@@ -41,10 +44,12 @@ public class WindWall : ElementalWall
 
     private void EnableFireCombo()
     {
+        defaultVisual.SetActive(false);
         fireCombo.gameObject.SetActive(true);
     }
     private void EnableIceCombo()
     {
+        defaultVisual.SetActive(false);
         iceCombo.gameObject.SetActive(true);
     }
 }
