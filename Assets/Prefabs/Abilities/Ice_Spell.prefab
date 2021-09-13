@@ -9816,7 +9816,7 @@ GameObject:
   - component: {fileID: 731538013260861585}
   - component: {fileID: -3772409249731598849}
   - component: {fileID: 5249025335846715245}
-  - component: {fileID: 7147509412839276175}
+  - component: {fileID: -5097923660237574141}
   m_Layer: 0
   m_Name: Ice_Spell
   m_TagString: Untagged
@@ -9870,7 +9870,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0.87}
---- !u!114 &7147509412839276175
+--- !u!114 &-5097923660237574141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9879,7 +9879,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7741218905476690564}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfe959b614fce304aa7719271c2498ea, type: 3}
+  m_Script: {fileID: 11500000, guid: c424bb25e5d177b4cb5c7607622f7394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20

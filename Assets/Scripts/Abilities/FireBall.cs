@@ -20,7 +20,9 @@ public class FireBall : ElementalBall
     }
 
     protected override void HandleWindWallHit(WindWall wall)
-    { }
+    {
+        wall.TurnIntoFireCombo();
+    }
     protected override void HandleEarthWallHit(EarthWall wall)
     { }
     protected override void HandleFireWallHit(FireWall wall)
