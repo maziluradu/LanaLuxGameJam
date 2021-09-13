@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class TooltipFader : MonoBehaviour
 {
     public bool shouldSkip = false;
+    public bool shouldSkipFirst = false;
 
     public UnityEvent onTitleFadedAway = new UnityEvent();
     public UnityEvent onTitleSkipped = new UnityEvent();
@@ -21,7 +22,11 @@ public class TooltipFader : MonoBehaviour
         else
         {
             text = GetComponent<Text>();
-            ShowTitle();
+
+            if (!shouldSkipFirst)
+            {
+                ShowTitle();
+            }
         }
     }
 

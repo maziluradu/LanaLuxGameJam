@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AbilityUser : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class AbilityUser : MonoBehaviour
     public FireBallSpell fireBallSpell = new FireBallSpell();
     public IceBallSpell iceBallSpell = new IceBallSpell();
     public WindBallSpell windBallSpell = new WindBallSpell();
+
+    public UnityEvent onSpellBlockedByCooldown = new UnityEvent();
 
     [SerializeField] private ElementalType _lastElementalType;
 
@@ -44,12 +47,14 @@ public class AbilityUser : MonoBehaviour
     {
         ability.UpdateTimers(Time.deltaTime);
 
-        if (!ability.onCooldown)
+        if (Input.GetKeyDown(ability.button))
         {
-            if (Input.GetKeyDown(ability.button))
+            if (!ability.onCooldown)
             {
                 ability.Press(this, targeting);
                 LastElementalType = ability.ElementalType;
+            } else {
+                onSpellBlockedByCooldown.Invoke();
             }
         }
     }

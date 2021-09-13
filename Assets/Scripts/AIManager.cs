@@ -7,11 +7,11 @@ public class AIManager : MonoBehaviour
     public GameObject mainPlayer;
     public List<AIController> AIs = new List<AIController>();
     public List<GameObject> AIPrefabs = new List<GameObject>();
-    public Transform SpawnPoint;
+    public List<Transform> SpawnPoints = new List<Transform>();
 
     protected virtual AIController SpawnAI(GameObject prefab)
     {
-        return SpawnAI(prefab, this.SpawnPoint.transform.position, this.transform.rotation);
+        return SpawnAI(prefab, this.SpawnPoints[UnityEngine.Random.Range(0, SpawnPoints.Count - 1)].transform.position, this.transform.rotation);
     }
 
     protected virtual AIController SpawnAI(GameObject prefab, Vector3 position, Quaternion rotation)

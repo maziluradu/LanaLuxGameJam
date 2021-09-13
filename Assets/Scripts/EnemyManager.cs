@@ -17,13 +17,8 @@ public class EnemyManager : AIManager
 
     private float timer = 0f;
     private bool waveFrozen = true;
-    private int currentWave = 1;
-    private int enemiesSpawnedThisWave = 0;
-
-    public void ResetEnemiesSpawned()
-    {
-        enemiesSpawnedThisWave = 0;
-    }
+    public int currentWave = 1;
+    public int enemiesSpawnedThisWave = 0;
 
     public void FreezeWave(bool toggle)
     {
@@ -45,13 +40,8 @@ public class EnemyManager : AIManager
             {
                 if (this.enemiesSpawnedThisWave < enemiesToSpawn)
                 {
-                    timer = Mathf.Max(0, Mathf.Max(1.0f - burstRatio*2, 0) * interval);
-                    this.SpawnEnemies(Convert.ToInt32(enemiesToSpawn * burstRatio));
-
-                    if (this.enemiesSpawnedThisWave >= enemiesToSpawn)
-                    {
-                        currentWave++;
-                    }
+                    timer = Mathf.Max(0, (1.0f - burstRatio) * interval);
+                    this.SpawnEnemies(Convert.ToInt32(Math.Min(enemiesToSpawn * burstRatio, enemiesToSpawn - enemiesSpawnedThisWave)));
                 } else
                 {
                     timer = 0;
@@ -78,10 +68,11 @@ public class EnemyManager : AIManager
     {
         if (this.AIPrefabs.Count > 0)
         {
+            var randomSpawnPoint = this.SpawnPoints[UnityEngine.Random.Range(0, SpawnPoints.Count - 1)];
             this.SpawnAI(
                 this.AIPrefabs[UnityEngine.Random.Range(0, this.AIPrefabs.Count)],
-                this.SpawnPoint.transform.position + new Vector3(UnityEngine.Random.Range(0.0f, this.enemyScattering), 0, UnityEngine.Random.Range(0.0f, this.enemyScattering)),
-                this.SpawnPoint.transform.rotation
+                randomSpawnPoint.transform.position + new Vector3(UnityEngine.Random.Range(0.0f, this.enemyScattering), 0, UnityEngine.Random.Range(0.0f, this.enemyScattering)),
+                randomSpawnPoint.transform.rotation
             );
         }
     }
@@ -102,6 +93,8 @@ public class EnemyManager : AIManager
         {
             onWaveEnded.Invoke(currentWave);
             enemiesSpawnedThisWave = 0;
+            timer = 0;
+            currentWave++;
         }
     }
 
