@@ -476,6 +476,7 @@ GameObject:
   - component: {fileID: 5115113988149346377}
   - component: {fileID: 1699577503064230416}
   - component: {fileID: 1699577503064230417}
+  - component: {fileID: 1827487101}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -552,10 +553,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ea424cdf62f824e9f624906ebcf27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackId: Attack
   damageId: Damage
   dieId: Die
   idleId: Idle
   walkId: Walk
+--- !u!114 &1827487101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970172460771541129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0274dd2f3ef5af64ab743cbf0c061f55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 0
+  _maxHp: 100
+  _hp: 100
 --- !u!1 &2414085507794382243
 GameObject:
   m_ObjectHideFlags: 0
