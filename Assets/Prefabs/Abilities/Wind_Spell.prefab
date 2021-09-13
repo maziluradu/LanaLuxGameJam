@@ -4940,9 +4940,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   lifetime: 10
-  damage: 25
+  damage: 15
   destroyOnHit: 0
+  impactPrefab: {fileID: 0}
   fireEffect: {fileID: 5701478043597829726, guid: 02029f9984093ee45be4c9f4b7ab1ed2, type: 3}
-  iceEffect: {fileID: 0}
   windEffect: {fileID: 0}
-  earthEffect: {fileID: 0}
