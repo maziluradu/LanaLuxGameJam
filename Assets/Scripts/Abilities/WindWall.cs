@@ -5,7 +5,10 @@ public class WindWall : ElementalWall
     public GameObject defaultVisual;
     public FireWall fireCombo;
     public IceWall iceCombo;
+    public WindWindEffect windCombo;
     public float comboDelay = 0.5f;
+    public float pullStrength = 10f;
+    public float spinStrength = 360f;
 
     protected bool _isFireCombo = false;
     protected bool _isIceCombo = false;
@@ -18,6 +21,15 @@ public class WindWall : ElementalWall
         base.Start();
         ElementalType = ElementalType.Wind;
     }
+    private void OnTriggerStay(Collider other)
+    {
+        var unit = other.GetComponent<CombatUnit>();
+        if (unit != null)
+        {
+            unit.transform.position += Time.fixedDeltaTime * pullStrength * (transform.position - unit.transform.position).normalized;
+            unit.transform.eulerAngles += Time.fixedDeltaTime * spinStrength * Vector3.up;
+        }
+    }
 
     public bool TurnIntoFireCombo()
     {
@@ -26,6 +38,7 @@ public class WindWall : ElementalWall
         else
         {
             _isFireCombo = true;
+            Destroy(windCombo);
             Invoke(nameof(EnableFireCombo), comboDelay);
             return true;
         }
@@ -37,6 +50,7 @@ public class WindWall : ElementalWall
         else
         {
             _isIceCombo = true;
+            Destroy(windCombo);
             Invoke(nameof(EnableIceCombo), comboDelay);
             return true;
         }

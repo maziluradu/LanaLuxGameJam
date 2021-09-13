@@ -19518,6 +19518,7 @@ GameObject:
   - component: {fileID: 2109065005762191845}
   - component: {fileID: 7081466768952837880}
   - component: {fileID: 5944358762433553651}
+  - component: {fileID: 5520515983644278807}
   m_Layer: 0
   m_Name: Wind_Wall
   m_TagString: Untagged
@@ -19601,4 +19602,22 @@ MonoBehaviour:
   defaultVisual: {fileID: 6774000790362806726}
   fireCombo: {fileID: 8808004505260342746}
   iceCombo: {fileID: 7963860161305271927}
+  windCombo: {fileID: 5520515983644278807}
   comboDelay: 0.2
+  pullStrength: 10
+  spinStrength: 300
+--- !u!114 &5520515983644278807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6774000791503762392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae3f842b4a33c643a677488bb348f70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  distance: 5
+  count: 3
