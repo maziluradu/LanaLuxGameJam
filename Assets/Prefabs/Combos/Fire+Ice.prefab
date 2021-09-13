@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7911294329811276368, guid: 1c9d467682795f148b389ff40570279d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.1
+      value: 6.34
       objectReference: {fileID: 0}
     - target: {fileID: 7911294329811276368, guid: 1c9d467682795f148b389ff40570279d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -99,6 +99,22 @@ PrefabInstance:
     - target: {fileID: 7911294329811276371, guid: 1c9d467682795f148b389ff40570279d, type: 3}
       propertyPath: m_Name
       value: Sprinkler VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911294329811276382, guid: 1c9d467682795f148b389ff40570279d, type: 3}
+      propertyPath: VelocityModule.z.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911294329811276382, guid: 1c9d467682795f148b389ff40570279d, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 2.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911294329811276382, guid: 1c9d467682795f148b389ff40570279d, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911294329811276382, guid: 1c9d467682795f148b389ff40570279d, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c9d467682795f148b389ff40570279d, type: 3}
