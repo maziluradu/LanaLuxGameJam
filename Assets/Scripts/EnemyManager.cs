@@ -10,7 +10,7 @@ public class EnemyManager : AIManager
     public int enemiesCount = 10;
     public float enemyMultiplierForEachWave = 1.2f;
 
-    public UnityEvent onWaveEnded = new UnityEvent();
+    public UnityEvent<int> onWaveEnded = new UnityEvent<int>();
     public UnityEvent<string> onWaveStarted = new UnityEvent<string>();
 
     private float timer = 0f;
@@ -75,7 +75,7 @@ public class EnemyManager : AIManager
 
         if (AIs.Count == 0)
         {
-            onWaveEnded.Invoke();
+            onWaveEnded.Invoke(currentWave);
         }
     }
 }
